@@ -1,0 +1,302 @@
+
+body {
+    background-color: #EDEEF0;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    height: 7%; /* Высота хэдера 70 пикселей */
+    width: 70%; /* Ширина хэдера 75% от ширины страницы */
+    min-width: 700px;
+    max-width: 1400px;
+    margin: 0 auto; /* Выравнивание хэдера по центру */
+    background-color: #ffffff;
+    position: fixed; /* Фиксированное позиционирование хэдера */
+    top: 0; /* Хэдер будет прикреплен к верху страницы */
+    left: 0; /* Хэдер будет прикреплен к левому краю */
+    right: 0; /* Хэдер будет прикреплен к правому краю */
+    border-bottom-left-radius: 20px; /* Бордер-радиус только для нижнего левого угла */
+    border-bottom-right-radius: 20px; /* Бордер-радиус только для нижнего правого угла */
+    z-index: 9999;
+    border-bottom: 1px solid #e7e8ec;
+}
+
+
+.main-body-news-container {
+    width: 650px; /* Ширина контейнера 50% от ширины страницы */
+    min-width: 650px;
+    max-width: 800px;
+    min-height: 800px; /* Минимальная высота контейнера 400 пикселей */
+
+    margin: 110px auto 0; /* Расположение контейнера: 40 пикселей сверху, по центру по горизонтали */
+    box-sizing: border-box; /* Учёт padding в общей ширине */
+    /*overflow-y: auto; !* Добавление вертикальной прокрутки при необходимости *!*/
+    border-radius: 20px;
+}
+.nav-container {
+    background-color: #ffffff; /* Цвет фона контейнера (замените на ваш цвет) */
+    border-radius: 20px;
+    border: 1px solid #e7e8ec;
+
+}
+
+.search-favorite-container {
+    width: auto;
+    height: 38px;
+    background-color: #ffffff;
+    margin-top: 15px;
+    margin-left: 30px;
+    margin-right:   30px;
+
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    position: absolute;
+    left: 5px;
+}
+
+.input-search {
+    /*color: #88919D;*/
+
+    height: 37px;
+    width: 30%;
+    min-width: 130px;
+    max-width: 220px;
+
+    padding-left: 40px;
+    border-radius: 10px; /* Задание border-radius */
+    border: #EDEEF0;
+    background-color: #EDEEF0; /* Задание цвета заднего фона */
+    outline-width: 0;
+    display: inline-flex;
+
+    font-size: 20px;
+}
+
+.input-search:focus-visible {
+    border: #EDEEF0;
+    background-color: #cdcdcd; /* Задание цвета заднего фона */
+}
+.input-search::placeholder {
+    font-family: Inter, sans-serif;
+    font-size: 20px; /* Задание размера шрифта */
+    /*padding-left: 37px; !* Отступ слева *!*/
+    line-height: 40px; /* Высота поля ввода */
+
+}
+
+.favorite-button {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    color: #757575;
+
+    margin-left: auto;
+    padding-left: 10px;
+    border: none;
+    border-radius: 10px; /* Задание border-radius */
+    border: #EDEEF0;
+
+    background-color: #EDEEF0; /* Задание цвета заднего фона */
+
+    outline-width: 0;
+    display: inline-flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.favorite-icon {
+    width: 30px;
+    height: 35px;
+}
+
+.favorite-button-text {
+    margin-left: 5px;
+}
+
+
+.filter-buttons-container {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.filter-button {
+    margin: 0 5px; /* Отступ между кнопками */
+
+    height: 35px;
+    background-color: #ffffff;
+    border: 2px solid #EDEEF0;
+    border-radius: 10px;
+    cursor: pointer;
+
+    font-family: 'Inter', bold, sans-serif;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
+}
+
+.filter-button:hover {
+    background-color: #EDEEF0;
+}
+
+
+/* МОДАЛЬНОЕ ОКНО */
+
+/* Стили для модального окна */
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-content img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* НОВОСТИ */
+
+
+.all-news-container {
+    width: 100%;
+    margin: 20px auto; /* Для центрирования по горизонтали */
+}
+
+.news-row {
+    background-color: #ffffff; /* Цвет фона контейнера (замените на ваш цвет) */
+    border-radius: 20px;
+    border: 1px solid #e7e8ec;
+    padding-bottom: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.news-item {
+    width: 100%; /* Ширина равна ширине своего родительского контейнера */
+    margin: 0 auto 30px;
+    min-height: 200px;
+    /*border: 1px solid black; !* Задаем цвет границ и их толщину *!*/
+
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.news-title {
+    margin: 10px auto 5px;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.news-text {
+    margin: 5px 25px 5px 25px;
+    height: auto;
+}
+
+.content-images-wrapper {
+    /*width: 100%;*/
+    display: flex; /* Используем flexbox */
+    flex-direction: column;
+    /*align-items: center; !* Выравниваем элементы по центру по горизонтали *!*/
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    margin-top: 20px;
+    /* Дополнительные стили, если необходимо */
+}
+
+
+
+.content-images-wrapper img {
+    max-width: 100%; /* Максимальная ширина картинки равна ширине родительского контейнера */
+    height: auto; /* Автоматическое вычисление высоты с сохранением пропорций */
+}
+.row {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+.image-container img {
+    width: 100%;
+    /*height: auto;*/
+}
+
+.row img {
+    margin: 1px;
+    cursor: pointer; /* Делаем курсор указателем при наведении */
+
+    border-radius: 2px;
+}
+
+.content-documents-wrapper {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    /* Дополнительные стили */
+}
+
+.document-container {
+    display: flex; /* Используем flexbox для расположения элементов в строку */
+    align-items: center; /* Выравниваем элементы по вертикали */
+    margin-left: 23px;
+    margin-top: 10px;
+}
+
+.document-icon {
+    width: 45px; /* Ширина иконки */
+    height: 45px; /* Высота иконки */
+    background-color: #E9EBEE;
+    border-radius: 10px;
+}
+.document-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+.document-content {
+    margin-left: 10px;
+}
+.document-content a {
+    text-decoration: none;
+    font-size: 17px;
+    font-style: italic;
+    color: black;
+}
+
+.document-content p {
+    margin: 5px 0 0;
+    color: #999999;
+    font-size: 14px;
+    font-style: italic;
+}
