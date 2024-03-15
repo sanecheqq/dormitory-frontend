@@ -8,20 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- CSS Bootstrap 4 -->
-    <!-- Bootstrap CSS -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Popper.js (включен в Bootstrap JS) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
     <title>News App</title>
     <link rel="stylesheet" href="../styles/news-styles.css">
 </head>
@@ -124,6 +119,7 @@
                     </div>
                 {{/each}}
             </script>
+            <script src="../scripts/compile-news-template.js"></script>
         </div>
     </div>
 
@@ -134,7 +130,6 @@
     }, 500); // Задержка в 0.5сек
     });
     </script>
-    <script src="../scripts/compile-news-template.js"></script>
     <script src="../scripts/filter-by-category.js"></script>
     <script src="../scripts/searching-news.js"></script>
     <script src="../scripts/modal-window.js"></script>
