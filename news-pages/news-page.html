@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- CSS Bootstrap 4 -->
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper.js (включен в Bootstrap JS) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <title>News App</title>
+    <link rel="stylesheet" href="../styles/news-styles.css">
+</head>
+<body>
+    <header>
+        <h1>News App</h1>
+    </header>
+
+    <!-- структура модального окна -->
+    <div id="modal-container-id" class="modal-container">
+        <div id="modal-content-id" class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Увеличенное изображение">
+        </div>
+    </div>
+
+    <div class="main-body-news-container">
+        <div class="nav-container">
+            <div class="search-favorite-container">
+                <img src="../icons/icons8-search-30.png" class="search-icon" alt="Поиск">
+                <input id="input-search-id" class="input-search" type="search" placeholder="Поиск">
+
+
+                <button class="favorite-button">
+                    <img class="favorite-icon" src="../icons/icons8-favorite-folder-48.png" alt="Избранное">
+                    <span class="favorite-button-text">Избранное</span>
+                </button>
+            </div>
+
+            <div class="filter-buttons-container">
+                <button class="filter-button" data-category="NEWS">Новости</button>
+                <button class="filter-button" data-category="ORDERS">Приказы</button>
+                <button class="filter-button" data-category="ALL">Все</button>
+            </div>
+        </div>
+
+
+
+        <div class="all-news-container">
+            <script id="news-template" type="text/x-handlebars-template">
+                {{#each news}}
+                    <div class="news-row">
+                        <div id="{{id}}" data-category="{{category}}" class="news-item">
+                            <div class="news-content">
+                                <p class="news-title">
+                                    {{title}}
+                                </p>
+                                <p class="news-date">
+                                    {{date}}
+                                </p>
+                                <p class="news-text">
+                                    {{content}}
+                                </p>
+                            </div>
+                            {{#if images}}
+                                <div class="content-images-wrapper">
+                                    <div id="carousel{{@index}}" class="carousel slide" data-ride="carousel" data-interval="false">
+                                        <!-- Индикаторы -->
+                                        <ol class="carousel-indicators">
+                                            {{#each images}}
+                                                <li data-target="#carousel{{@../index}}" data-slide-to="{{@index}}" {{#if @first}}class="active"{{/if}}></li>
+                                            {{/each}}
+                                        </ol>
+                                        <div class="carousel-inner">
+                                            {{#each images}}
+                                                <div class="carousel-item {{#if @first}}active{{/if}}">
+                                                    <img class="img-fluid" src="{{url}}" alt="{{file_name}}">
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                        <!-- Элементы управления -->
+                                        <a class="carousel-control-prev" href="#carousel{{@index}}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Предыдущий</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carousel{{@index}}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Следующий</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            {{/if}}
+                            {{#if documents}}
+                                <div class="content-documents-wrapper">
+                                    {{#each documents}}
+                                        <div class="document-container">
+                                            <div class="document-icon">
+                                                <img src="../icons/icons8-document-48.png" alt="Document">
+                                            </div>
+                                            <div class="document-content">
+                                                <a id="{{file_id}}" class="document-link" href="{{url}}" download
+                                                   target="_blank">{{file_name}}</a>
+                                                <p class="file-size"></p>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/each}}
+            </script>
+        </div>
+    </div>
+
+    <script> // ждет завершения загрузки элементов. отображает страницу через 0.5с
+    document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+    document.body.style.visibility = "visible"; // Показываем элементы страницы
+    }, 500); // Задержка в 0.5сек
+    });
+    </script>
+    <script src="../scripts/compile-news-template.js"></script>
+    <script src="../scripts/filter-by-category.js"></script>
+    <script src="../scripts/searching-news.js"></script>
+    <script src="../scripts/modal-window.js"></script>
+    <script src="../scripts/doc-processing.js"></script>
+
+</body>
+</html>

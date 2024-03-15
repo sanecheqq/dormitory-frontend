@@ -10,9 +10,15 @@ window.addEventListener('load', function() {
                 images.forEach((image, imgIdx) => {
                     image.style.objectFit = 'cover'
                     if (imgIdx === 0) {
+                        if (rowsCount === 1) {
+                            image.style.borderBottomLeftRadius = '10px';
+                        }
                         image.style.borderTopLeftRadius = '10px';
                     }
                     if (imgIdx === rowImagesCount-1) {
+                        if (rowsCount === 1) {
+                            image.style.borderBottomRightRadius = '10px';
+                        }
                         image.style.borderTopRightRadius = '10px';
                     }
                     if (rowImagesCount === 1) {

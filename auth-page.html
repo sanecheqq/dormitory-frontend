@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="styles/auth-styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Авторизация</h2>
+    <form id="registration-form">
+        <div class="form-group">
+            <label for="login">Логин:</label>
+            <input type="text" id="login" name="login" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn-login">Войти</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('registration-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Отменяем стандартное действие отправки формы
+
+            // Получаем значения логина и пароля из полей ввода
+            var login = document.getElementById('login').value;
+            var password = document.getElementById('password').value;
+            console.log("LOGIN:", login);
+            console.log("PASSWORD:", password);
+            // Создаем объект с данными для отправки на сервер
+            var data = {
+                username: login,
+                password: password
+            };
+
+            $.ajax({
+                url: 'http://127.0.0.1:8085/auth/login',
+                type: 'POST',
+                // mode: 'no-cors',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function(data) {
+                    var jwtToken = data.token;
+                    console.log(jwtToken);
+                    localStorage.setItem('jwt', jwtToken);
+                    window.location.href = 'news-page.html';
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Ошибка при отправке запроса на сервер:', errorThrown);
+                    // Дополнительная обработка ошибки, например, вывод сообщения пользователю
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

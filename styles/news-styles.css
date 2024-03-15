@@ -2,6 +2,7 @@
 body {
     background-color: #EDEEF0;
     font-family: 'Inter', sans-serif;
+    visibility: hidden; //
 }
 
 header {
@@ -76,6 +77,11 @@ header {
     font-size: 20px;
 }
 
+.input-search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
 .input-search:focus-visible {
     border: #EDEEF0;
     background-color: #cdcdcd; /* Задание цвета заднего фона */
@@ -140,8 +146,20 @@ header {
     transition: background-color 0.3s ease; /* Плавное изменение цвета при наведении */
 }
 
+.active-filter-button {
+    background-color: #EDEEF0;
+    outline-width: 0;
+}
+
 .filter-button:hover {
     background-color: #EDEEF0;
+}
+
+.filter-button:focus-visible {
+    outline-width: 0;
+}
+.filter-button:focus {
+    outline-width: 0;
 }
 
 
@@ -165,11 +183,13 @@ header {
     align-items: center;
     width: 100%;
     height: 100%;
+    background-color: rgba(162, 162, 162, 0.03);
 }
 
 .modal-content img {
     max-width: 90%;
     max-height: 90%;
+
 }
 
 .close {
@@ -200,8 +220,10 @@ header {
 
 .news-item {
     width: 100%; /* Ширина равна ширине своего родительского контейнера */
-    margin: 0 auto 30px;
-    min-height: 200px;
+    /*margin: 0 auto 30px;*/
+    margin: 0 auto;
+    /*min-height: 200px;*/
+    height: auto;
     /*border: 1px solid black; !* Задаем цвет границ и их толщину *!*/
 
 }
@@ -209,61 +231,60 @@ header {
 .news-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /*align-items: center;*/
 }
 
 .news-title {
     margin: 10px auto 5px;
     font-size: 24px;
     font-style: italic;
+    max-width: 80%; /* Установка максимальной ширины заголовка */
+    word-wrap: break-word; /* Автоперенос длинных слов */
+    text-align: center; /* Расположение текста по центру */
+}
+
+.news-date {
+    margin: 0 auto;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 14px;
+    color: #88919D;
+    text-align: center;
 }
 
 .news-text {
     margin: 5px 25px 5px 25px;
     height: auto;
+    word-wrap: break-word; /* Автоперенос длинных слов */
+    text-align: left;
 }
+
 
 .content-images-wrapper {
-    /*width: 100%;*/
-    display: flex; /* Используем flexbox */
+    display: flex;
     flex-direction: column;
-    /*align-items: center; !* Выравниваем элементы по центру по горизонтали *!*/
     flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
     margin-top: 20px;
-    /* Дополнительные стили, если необходимо */
 }
 
-
-
-.content-images-wrapper img {
-    max-width: 100%; /* Максимальная ширина картинки равна ширине родительского контейнера */
-    height: auto; /* Автоматическое вычисление высоты с сохранением пропорций */
-}
-.row {
-    display: flex;
-    justify-content: space-evenly;
-    height: 100%;
+.carousel-item img {
+    width: 598px;
+    height: 300px;
+    object-fit: cover; /* Сохраняет пропорции изображения и заполняет контейнер */
 }
 
-.image-container img {
-    width: 100%;
-    /*height: auto;*/
-}
-
-.row img {
-    margin: 1px;
-    cursor: pointer; /* Делаем курсор указателем при наведении */
-
-    border-radius: 2px;
+[id^="carousel"] {
+    width: 598px;
+    height: 300px;
+    margin: auto; /* Центрирование по горизонтали и вертикали */
 }
 
 .content-documents-wrapper {
-    margin-top: 20px;
-    width: 100%;
+    /*margin-top: 20px;*/
+    width: auto;
     height: auto;
     display: flex;
     flex-direction: column;
-    /* Дополнительные стили */
 }
 
 .document-container {
@@ -300,3 +321,5 @@ header {
     font-size: 14px;
     font-style: italic;
 }
+
+
