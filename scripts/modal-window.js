@@ -9,14 +9,13 @@ window.addEventListener('load', function() {
                 const clickedImage = event.target;
                 const modalImage = document.getElementById('modal-image');
                 const modalContainer = document.getElementById('modal-container-id');
-                const modalOverlay = document.getElementById('modal-overlay'); // Получаем элемент затемнения
+                const modalOverlay = document.getElementById('modal-overlay');
 
                 modalImage.src = clickedImage.src;
                 modalContainer.style.display = 'flex';
                 modalOverlay.style.display = 'block'; // Отображаем затемнение
             }
         });
-
     });
 
     const closeButton = document.querySelector('.close');
