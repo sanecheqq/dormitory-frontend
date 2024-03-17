@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="form-wrapper-container">
     <h2>Авторизация</h2>
     <form id="registration-form">
         <div class="form-group">
@@ -52,11 +52,10 @@
                     var jwtToken = data.token;
                     console.log(jwtToken);
                     localStorage.setItem('jwt', jwtToken);
-                    window.location.href = 'news-page.html';
+                    window.location.href = 'news-pages/news-page.html';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('Ошибка при отправке запроса на сервер:', errorThrown);
-                    // Дополнительная обработка ошибки, например, вывод сообщения пользователю
                 }
             });
         });
