@@ -1,6 +1,5 @@
 window.addEventListener('load', function() {
-
-    $('.add-to-favorites-button').on('click', function () {
+    $('.all-news-container').on('click', '.add-to-favorites-button', function () {
         toggleFavorite($(this));
     });
 });

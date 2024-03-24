@@ -19,17 +19,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
     <title>News App</title>
-    <link rel="stylesheet" href="../styles/news-styles.css">
-    <link rel="stylesheet" href="../styles/header-styles.css">
+    <link rel="stylesheet" href="/dormitory-frontend/styles/news/news-styles.css">
 
     <script>
         $(function(){
-            $("#header").load("../header.html");
+            $("#header").load("/header.html");
         });
     </script>
 </head>
 <body>
-    <header id="header"></header>
+    <div id="header"></div>
 
     <!-- структура модального окна -->
     <div id="modal-container-id" class="modal-container">
@@ -162,25 +161,26 @@
         // NAV BUTTONS - статическая часть
         window.addEventListener('DOMContentLoaded', function() {
             $('.go-to-favorites-button').on('click', function () {
-                window.location.href = 'favorites-news-page.html';
+                window.location.href = '/dormitory-frontend/news-pages/favorites-news-page.html';
             });
 
             $('.admin-create-news-button').on('click', function () {
-                window.location.href = 'create-edit-news-form.html?mode=create';
+                window.location.href = '/dormitory-frontend/news-pages/create-edit-news-form.html?mode=create';
             });
         });
     </script>
     <script>
 
     </script>
-    <script src="../scripts/compile-news-template.js"></script>
-    <script src="../scripts/filter-by-category.js"></script>
-    <script src="../scripts/searching-news.js"></script>
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="../scripts/news/compile-news-template.js"></script>
+    <script src="../scripts/news/filter-by-category.js"></script>
+    <script src="../scripts/news/searching-news.js"></script>
 
     <!-- для динамической части -->
-    <script src="../scripts/modal-window.js"></script>
-    <script src="../scripts/add-remove-favorites-button.js"></script>
-    <script src="../scripts/admin-dropdown-buttons.js"></script>
+    <script src="../scripts/news/modal-window.js"></script>
+    <script src="../scripts/news/add-remove-favorites-button.js"></script>
+    <script src="../scripts/news/admin-dropdown-buttons.js"></script>
 
 </body>
 </html>

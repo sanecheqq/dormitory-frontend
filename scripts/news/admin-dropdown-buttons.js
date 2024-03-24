@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    $('.delete-news-button').on('click', function() {
+    $('.all-news-container').on('click', '.delete-news-button', function() {
         const newsId = $(this).closest('.news-item').attr('id');
         $.ajax({
             url: 'http://192.168.0.11:8090/admin/news/' + newsId,
@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
         });
     });
 
-    $('.edit-news-button').on('click', function() {
+    $('.all-news-container').on('click', '.edit-news-button', function() {
         const newsId = $(this).closest('.news-item').attr('id');
         const title = $(this).closest('.news-item').find('.news-title').text();
         const category = $(this).closest('.news-item').attr('data-category');

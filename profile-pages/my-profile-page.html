@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/dormitory-frontend//styles/profile/profile-styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("#header").load("/header.html");
+        });
+    </script>
+
+
+    <title>User Profile</title>
+</head>
+<body>
+
+    <div id="header"></div>
+
+    <div class="profile-wrapper">
+        <div class="profile-main-container">
+            <div class="title-row-with-user-address">
+                <div class="profile-title-wrapper">
+                    <p class="profile-title-text">Профиль</p>
+                </div>
+                <div class="user-address-wrapper">
+                    <p class="user-address-text">Улица Адмирала Балуева, д. 54, к. 0</p>
+                </div>
+            </div>
+            <div class="menu-wrapper">
+                <div class="image-profile-wrapper">
+                    <img class="user-profile-image" src="../icons/icons8-user-100.png" alt="Пользователь"/>
+                </div>
+                <div class="admin-button-wrapper" style="visibility: hidden;">
+                    <button class="admin-manage-users-button" disabled>Панель администратора</button>
+                </div>
+            </div>
+            <div class="username-wrapper">
+                <p class="username-text">@sobaka</p>
+            </div>
+            <div class="main-user-info-wrapper">
+                <div class="general-user-info-title-wrapper">
+                    <p class="general-user-info-title-text">Личные данные</p>
+                </div>
+                <div class="general-user-info-wrapper">
+                    <!-- NSP = name-surname-patronymic -->
+                    <div class="column-user-nsp">
+                        <div class="user-data-field">
+                            <label for="user-surname-input">Фамилия:</label>
+                            <input type="text" id="user-surname-input" class="user-data-field-input" name="user-surname" value="Кончев" readonly>
+                        </div>
+                        <div class="user-data-field">
+                            <label for="user-name-input">Имя:</label>
+                            <input type="text" id="user-name-input" class="user-data-field-input" name="user-name" value="Епистафий" readonly>
+                        </div>
+                        <div class="user-data-field">
+                            <label for="user-patronymic-input">Отчество:</label>
+                            <input type="text" id="user-patronymic-input" class="user-data-field-input" name="user-patronymic" value="Абдурагулментович" readonly>
+                        </div>
+                    </div>
+                    <div class="column-user-contacts">
+                        <div class="user-data-field">
+                            <label for="user-phone-number-input">Телефон:</label>
+                            <input type="text" id="user-phone-number-input" class="user-data-field-input" name="user-phone-number" value="8(800)-555-35-35" readonly>
+                        </div>
+                        <div class="user-data-field">
+                            <label for="user-email-input">Почта:</label>
+                            <input type="text" id="user-email-input" class="user-data-field-input" name="user-email"  value="konchEpabdura@nekonch.net" readonly>
+                        </div>
+                        <div class="user-data-field">
+                            <label for="user-telegram-id-input">Телеграм:</label>
+                            <input type="text" id="user-telegram-id-input" class="user-data-field-input" name="user-telegram-id" value="@ne_konch_ya" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="certificates-user-info-title-wrapper">
+                    <p class="certificates-user-info-title-text">Информация о справках</p>
+                </div>
+                <div class="certificates-user-info-wrapper">
+                    <div class="row-user-certificates">
+                        <div class="user-data-field certificate-field">
+                            <label for="user-fluoro-start">Флюорография начало:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-fluoro-start">01-09-2023</p>
+                        </div>
+                        <div class="user-data-field certificate-field">
+                            <label for="user-fluoro-end">Флюорография конец:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-fluoro-end">24-03-2024</p>
+                        </div>
+                        <div class="days-left-wrapper">
+                            <p id="days-left-fluoro" class="days-left-text">Дней осталось: </p>
+                        </div>
+                    </div>
+
+                    <div class="row-user-certificates">
+                        <div class="user-data-field certificate-field">
+                            <label for="user-zpp-start">ЗПП начало:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-zpp-start">01-09-2023</p>
+                        </div>
+                        <div class="user-data-field certificate-field">
+                            <label for="user-zpp-end">ЗПП конец:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-zpp-end">05-05-2024</p>
+                        </div>
+                        <div class="days-left-wrapper">
+                            <p id="days-left-zpp" class="days-left-text">Дней осталось: </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-edit-wrapper">
+                    <!--class=""button-edit edit-active"-->
+                    <button class="button-edit" type="button">Редактировать</button>
+                </div>
+                <p id="warning_message" style="color: #f37a7a;font-style: italic"></p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="/scripts/profile/upload-user-data.js"></script>
+    <script src="/scripts/profile/buttorn-edit-user-data.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.visibility = "visible";
+                document.body.style.opacity = "1";
+            }, 500); // задержка в 0.5с
+        });
+    </script>
+</body>
+</html>

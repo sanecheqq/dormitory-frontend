@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="styles/auth-styles.css">
+    <link rel="stylesheet" href="/dormitory-frontend/styles/auth-styles.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 </head>
@@ -28,14 +28,12 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('registration-form').addEventListener('submit', function(event) {
-            event.preventDefault(); // Отменяем стандартное действие отправки формы
+            event.preventDefault();
 
-            // Получаем значения логина и пароля из полей ввода
             var login = document.getElementById('login').value;
             var password = document.getElementById('password').value;
             console.log("LOGIN:", login);
             console.log("PASSWORD:", password);
-            // Создаем объект с данными для отправки на сервер
             var data = {
                 username: login,
                 password: password
@@ -52,7 +50,7 @@
                     var jwtToken = data.token;
                     console.log(jwtToken);
                     localStorage.setItem('jwt', jwtToken);
-                    window.location.href = 'news-pages/news-page.html';
+                    window.location.href = '/dormitory-frontend/profile-pages/my-profile-page.html';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('Ошибка при отправке запроса на сервер:', errorThrown);

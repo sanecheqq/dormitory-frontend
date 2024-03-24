@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Header</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        header {
+            height: 7%; /* Высота хэдера 70 пикселей */
+            width: 70%; /* Ширина хэдера 75% от ширины страницы */
+            min-width: 700px;
+            max-width: 1400px;
+            margin: 0 auto; /* Выравнивание хэдера по центру */
+            background-color: #ffffff;
+            position: fixed; /* Фиксированное позиционирование хэдера */
+            top: 0; /* Хэдер будет прикреплен к верху страницы */
+            left: 0; /* Хэдер будет прикреплен к левому краю */
+            right: 0; /* Хэдер будет прикреплен к правому краю */
+            border-bottom-left-radius: 20px; /* Бордер-радиус только для нижнего левого угла */
+            border-bottom-right-radius: 20px; /* Бордер-радиус только для нижнего правого угла */
+            z-index: 9999;
+            border-bottom: 1px solid #e7e8ec;
+        }
+        nav {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        nav button {
+            margin: 0 10px; /* Расстояние между кнопками */
+            padding: 8px 16px; /* Внутренние отступы кнопок */
+            font-size: 16px; /* Размер шрифта кнопок */
+        }
+
+        .header-nav-button {
+            font-family: 'Inter', serif;
+            font-size: 20px;
+            color: black;
+
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .header-nav-button:focus {
+            outline: none;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>News App2</h1>
+        <h1>XXX App2</h1>
+        <nav>
+            <button class="header-nav-button" id="newsButton">Новости</button>
+            <button class="header-nav-button" id="profileButton">Профиль</button>
+        </nav>
     </header>
 
+    <script>
+        // Обработчик нажатия на кнопку "Новости"
+        $(document).ready(function() {
+            $("#newsButton").on("click", function () {
+                window.location.href = "/dormitory-frontend//news-pages/news-page.html";
+            });
+
+            // Обработчик нажатия на кнопку "Профиль"
+            $("#profileButton").on("click", function () {
+                window.location.href = "/dormitory-frontend/profile-pages/my-profile-page.html";
+            });
+        });
+    </script>
 </body>
 
 </html>

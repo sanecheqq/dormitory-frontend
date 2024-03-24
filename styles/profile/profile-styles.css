@@ -1,0 +1,250 @@
+body {
+    background-color: #EDEEF0;
+    font-family: 'Inter', serif;
+    font-weight: 400;
+    font-style: normal;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.15s;
+}
+
+input {
+    font-family: 'Inter', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+
+}
+
+button {
+    font-family: 'Inter', serif;
+    font-size: 20px;
+    color: white;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:focus-visible {
+    outline: none;
+}
+
+.profile-wrapper {
+    width: 730px;
+    height: auto;
+    min-height: 600px;
+    margin: 110px auto 0;
+    box-sizing: border-box;
+}
+
+.profile-main-container {
+    background-color: white;
+    width: auto;
+    height: auto;
+    /*min-height: 800px;*/
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    padding: 20px 40px;
+}
+
+.title-row-with-user-address {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.profile-title-wrapper,
+.user-address-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.profile-title-wrapper {
+    font-size: 24px;
+    /*font-style: italic;*/
+}
+
+.user-address-wrapper {
+    font-size: 14px;
+}
+
+.profile-title-text,
+.user-address-text {
+    margin: 0;
+}
+
+.menu-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.admin-manage-users-button {
+    width: 180px;
+    height: auto;
+    padding: 10px 0 10px;
+
+    background-color: #36cb15;
+}
+
+.admin-manage-users-button:hover {
+    background-color: #26b408;
+}
+
+.image-profile-wrapper {
+    margin-top: 20px;
+}
+
+.user-profile-image {
+    width: 80px;
+    height: auto;
+}
+
+.username-wrapper {
+    margin-top: 2px;
+    font-size: 14px;
+    /*font-style: italic;*/
+}
+
+.username-text {
+    margin: 0;
+}
+
+.main-user-info-wrapper {
+    height: auto;
+}
+
+.general-user-info-title-wrapper,
+.certificates-user-info-title-wrapper {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+.general-user-info-title-text,
+.certificates-user-info-title-text {
+    margin: 0;
+}
+
+.general-user-info-wrapper {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.column-user-nsp,
+.column-user-contacts {
+    width: 270px;
+    /*height: 300px;*/
+    /*border: 1px solid black;*/
+}
+
+.column-user-contacts {
+
+}
+
+
+.user-data-field {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+
+.certificate-field {
+    width: 270px;
+    margin-bottom: 0;
+}
+
+.user-data-field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 450;
+    color: #5289D1;
+}
+
+.user-data-field-input,
+.user-certificates-text-block {
+    border: none;
+    border-bottom: 2px solid #5289D1;
+    padding: 1px 2px 6px 2px;
+    width: 100%;
+    margin: 0;
+}
+
+.edit-input-active {
+    border-bottom: 2px solid #e50404;
+}
+
+.user-data-field input:focus-visible {
+    outline: none;
+}
+
+.certificates-user-info-title-wrapper {
+    margin-top: 0;
+}
+
+.certificates-user-info-wrapper {
+    margin-top: 15px;
+}
+
+.row-user-certificates {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.days-left-wrapper {
+    width: 100%;
+}
+
+.days-left-wrapper p {
+    color: #88919D;
+    font-size: 14px;
+    font-style: italic;
+    margin: 6px 0 25px;
+}
+
+.button-edit-wrapper {
+    width: auto;
+}
+.button-edit {
+    width: 185px;
+    height: auto;
+    padding: 10px 0 10px;
+    background-color: #6c9cd9;
+}
+
+.edit-active {
+    background-color: #5ac548;
+    transition: background-color 0.3s ease;
+    /* и текст "Сохранить" */
+}
+
+
+
+.button-edit:hover {
+    background-color: #3e83de;
+}
+
+.edit-active:hover {
+    background-color: #11c004;
+}
+
+.button-edit:focus-visible {
+    outline: none;
+}
+
+#warningMessage {
+    margin: 0;
+}
