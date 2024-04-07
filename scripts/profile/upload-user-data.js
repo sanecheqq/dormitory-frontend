@@ -39,6 +39,7 @@ function uploadUserData() {
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', error);
+            // window.location.href = '/auth-page.html';
         }
     });
 }

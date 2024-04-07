@@ -113,9 +113,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="button-edit-wrapper">
+                <div class="bottom-buttons-wrapper">
                     <!--class=""button-edit edit-active"-->
                     <button class="button-edit" type="button">Редактировать</button>
+                    <button class="button-log-out" type="button">Выйти</button>
                 </div>
                 <p id="warning_message" style="color: #f37a7a;font-style: italic"></p>
 
@@ -123,9 +124,12 @@
         </div>
     </div>
 
+    <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/decode_jwt.js"></script>
     <script src="/scripts/profile/upload-user-data.js"></script>
     <script src="/scripts/profile/buttorn-edit-user-data.js"></script>
+    <script src="/scripts/profile/buttorn-edit-user-data.js"></script>
+    <script src="/scripts/profile/log-out.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {

@@ -215,8 +215,10 @@ button:focus-visible {
     margin: 6px 0 25px;
 }
 
-.button-edit-wrapper {
+.bottom-buttons-wrapper {
     width: auto;
+    display: flex;
+    justify-content: space-between;
 }
 .button-edit {
     width: 185px;
@@ -242,6 +244,21 @@ button:focus-visible {
 }
 
 .button-edit:focus-visible {
+    outline: none;
+}
+
+.button-log-out {
+    width: 100px;
+    height: auto;
+    padding: 10px 0 10px;
+    background-color: #ff5959;
+}
+
+.button-log-out:hover {
+    background-color: #fd3a3a;
+}
+
+.button-log-out:focus-visible {
     outline: none;
 }
 

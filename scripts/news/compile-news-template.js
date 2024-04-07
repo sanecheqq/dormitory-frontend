@@ -11,16 +11,18 @@ function compileAllNews() {
             console.log('Получены данные:', jsonData);
             let userRole = decodeJWT(localStorage.getItem('jwt')).userRole;
             if (userRole === 'ADMIN') {
-                jsonData.isAdmin = true ;
-            } else {
-                $('.news-row').css("border-top-left-radius", "20px");
+                jsonData.isAdmin = true;
             }
             let template = Handlebars.compile($('#news-template').html());
             $('.all-news-container').html(template(jsonData));
+            if (userRole !== 'ADMIN'){
+                $('.news-row').css('border-radius', '20px');
+            }
             $('.carousel-item').first().addClass('active');
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', error);
+            window.location.href = '/dormitory-frontend/auth-page.html';
         }
     });
 }

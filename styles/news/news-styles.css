@@ -168,12 +168,14 @@ body {
 }
 
 .active-filter-button {
-    background-color: #EDEEF0;
+    background-color: #a6b6ff;
+    border-color: #a6b6ff;
     outline-width: 0;
 }
 
 .filter-button:hover {
-    background-color: #EDEEF0;
+    background-color: #a6b6ff;
+    border-color: #a6b6ff;
 }
 
 .filter-button:focus-visible {

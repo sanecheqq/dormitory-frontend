@@ -15,6 +15,7 @@ function compileFavoriteNews() {
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', error);
+            window.location.href = '/dormitory-frontend/auth-page.html';
         }
     });
 }
