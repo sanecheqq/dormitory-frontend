@@ -1,0 +1,27 @@
+<script id="product-template" type="text/x-handlebars-template">
+    {{#each products}}
+        <div class="product-row" id="{{id}}" data-category="{{category}}">
+            <div class="images-wrapper">
+                {{#each images}}
+                    {{#if @first}}
+                        <img src="{{this.url}}" class="image-preview">
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="product-text-content-wrapper">
+                <div class="product-title-wrapper">
+                    <p class="product-title-text">{{name}}</p>
+                </div>
+                <div class="product-price-wrapper">
+                    <p class="product-price-text">{{price}} ₽</p>
+                </div>
+                <div class="product-description-wrapper">
+                    <p class="product-description-text">{{description}}</p>
+                </div>
+                <div class="product-contacts-wrapper">
+                    <p class="product-contacts-text">Контакты: tg: {{tgUsername}}</p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</script>

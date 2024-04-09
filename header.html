@@ -7,8 +7,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         header {
-            height: 7%; /* Высота хэдера 70 пикселей */
-            width: 70%; /* Ширина хэдера 75% от ширины страницы */
+            height: 70px;
+            width: 1078px;
             min-width: 700px;
             max-width: 1400px;
             margin: 0 auto; /* Выравнивание хэдера по центру */
@@ -27,9 +27,12 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            display: flex;
+            flex-wrap: nowrap;
         }
 
         nav button {
+            height: 44px;
             margin: 0 10px; /* Расстояние между кнопками */
             padding: 8px 16px; /* Внутренние отступы кнопок */
             font-size: 16px; /* Размер шрифта кнопок */
@@ -52,23 +55,28 @@
 </head>
 <body>
     <header>
-        <h1>XXX App2</h1>
         <nav>
             <button class="header-nav-button" id="newsButton">Новости</button>
             <button class="header-nav-button" id="profileButton">Профиль</button>
+            <button class="header-nav-button" id="marketButton">Маркет</button>
         </nav>
     </header>
 
     <script>
-        // Обработчик нажатия на кнопку "Новости"
         $(document).ready(function() {
+            // Обработчик нажатия на кнопку "Новости"
             $("#newsButton").on("click", function () {
-                window.location.href = "/dormitory-frontend//news-pages/news-page.html";
+                window.location.href = "/dormitory-frontend/news-pages/news-page.html";
             });
 
             // Обработчик нажатия на кнопку "Профиль"
             $("#profileButton").on("click", function () {
                 window.location.href = "/dormitory-frontend/profile-pages/my-profile-page.html";
+            });
+
+            // Обработчик нажатия на кнопку "Профиль"
+            $("#marketButton").on("click", function () {
+                window.location.href = "/dormitory-frontend/market-pages/market-home.html";
             });
         });
     </script>

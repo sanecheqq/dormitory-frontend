@@ -1,0 +1,226 @@
+body {
+    background-color: #EDEEF0;
+    font-family: 'Inter', serif;
+    font-weight: 400;
+    font-style: normal;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.15s;
+}
+
+button {
+    font-family: 'Inter', serif;
+}
+
+.main-body-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-buttons-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 1078px;
+    margin: 77px auto 0;
+}
+
+.add-product-button {
+    height: 40px;
+    width: 240px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.back-to-products-button,
+.my-products-button {
+    height: 40px;
+    width: 180px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.favorite-products-button {
+    height: 40px;
+    width: 180px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.back-to-products-button:hover,
+.add-product-button:hover,
+.favorite-products-button:hover,
+.my-products-button:hover {
+    cursor: pointer;
+    background-color: #2974e1;
+}
+
+.back-to-products-button,
+.add-product-button:focus-visible,
+.favorite-products-button:focus-visible,
+.my-products-button:focus-visible {
+    outline: none;
+}
+
+.market-body-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+
+    width: 1078px;
+    height: auto;
+    min-height: 300px;
+    margin: 16px auto 0;
+    box-sizing: border-box;
+}
+
+.market-side-bar {
+    position: sticky;
+    top: 77px;
+    width: 212px;
+    background-color: white;
+    border-radius: 20px;
+    height: 340px;
+    /* ВРЕМЕННАЯ ВЫСОТА    */
+}
+
+.market-products-body-wrapper {
+    width: 830px;
+    background-color: white;
+    border-radius: 20px;
+    min-height: 300px;
+    padding: 20px 15px 20px 15px;
+}
+
+.input-search-wrapper {
+    /*width: 800px; не решил как лучше*/
+    width: 99%;
+    margin: 0 auto 30px;
+    height: 40px;
+    background-color: #2C86FD;
+    border: 2px solid #2C86FD;
+    border-radius: 5px;
+    /*margin-bottom: 30px;*/
+    display: flex;
+}
+
+.product-search-input-class {
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
+    border: none;
+    padding: 0 8px 0 9px;
+    font-size: 16px;
+}
+
+.product-search-input-class:focus-visible {
+    outline: none;
+}
+
+.search-button-wrapper {
+    /*width: auto;*/
+    height: 100%;
+    width: 10%;
+    background-color: #2C86FD;
+    padding-left: 2px;
+    border-radius: 5px;
+}
+
+.search-button {
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    background-color: #2C86FD;
+    padding: 4px 4px 1px 4px;
+    border: none;
+    border-radius: 5px;
+}
+
+.search-button:hover {
+    cursor: pointer;
+    background-color: #4391fa;
+}
+
+.product-row {
+    display: flex;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.product-row:hover {
+    background-color: #eeeded;
+    cursor: pointer;
+}
+
+.image-preview {
+    width: 222px;
+    height: 232px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product-text-content-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.product-title-text {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+    color: #2C86FD;
+}
+
+.product-status {
+    margin: 7px 0 0 0;
+    font-size: 14px;
+
+    color: orange;
+}
+
+.product-price-text {
+    margin: 7px 0 0 0;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.product-description-text {
+    margin: 7px 0 0 0;
+    font-size: 14px;
+    color: #525252;
+}
+
+.product-contacts-wrapper {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.product-contacts-text {
+    margin: 7px 0 0 0;
+    font-size: 16px;
+    font-style: italic;
+
+}

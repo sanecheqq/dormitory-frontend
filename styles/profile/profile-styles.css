@@ -13,7 +13,6 @@ input {
     font-weight: 400;
     font-style: normal;
     font-size: 16px;
-
 }
 
 button {
@@ -91,7 +90,6 @@ button:focus-visible {
     width: 180px;
     height: auto;
     padding: 10px 0 10px;
-
     background-color: #36cb15;
 }
 
@@ -170,13 +168,13 @@ button:focus-visible {
     font-size: 13px;
     font-style: italic;
     font-weight: 450;
-    color: #5289D1;
+    color: #2C86FD;
 }
 
 .user-data-field-input,
 .user-certificates-text-block {
     border: none;
-    border-bottom: 2px solid #5289D1;
+    border-bottom: 2px solid #2C86FD;
     padding: 1px 2px 6px 2px;
     width: 100%;
     margin: 0;
@@ -224,7 +222,7 @@ button:focus-visible {
     width: 185px;
     height: auto;
     padding: 10px 0 10px;
-    background-color: #6c9cd9;
+    background-color: #2C86FD;
 }
 
 .edit-active {
@@ -232,7 +230,6 @@ button:focus-visible {
     transition: background-color 0.3s ease;
     /* и текст "Сохранить" */
 }
-
 
 
 .button-edit:hover {

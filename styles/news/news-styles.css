@@ -62,7 +62,7 @@ body {
     outline-width: 0;
     display: inline-flex;
 
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .input-search::-webkit-search-cancel-button {
@@ -72,7 +72,7 @@ body {
 
 .input-search:focus-visible {
     border: #EDEEF0;
-    background-color: #cdcdcd;
+    background-color: #e5e4e4;
 }
 
 .input-search::placeholder {
@@ -83,10 +83,12 @@ body {
 
 .admin-create-news-button {
     height: 37px;
-    background-color: #EDEEF0;
+    /*background-color: #EDEEF0;*/
+    color: white;
+    background-color: #36cb15;
     border: none;
     border-radius: 10px;
-    color: #757575;
+    /*color: #757575;*/
     font-size: 20px;
 
     outline: none;
@@ -101,7 +103,7 @@ body {
     outline: none;
 }
 .admin-create-news-button:hover {
-    background-color: #d9d9da;
+    background-color: #21a90a;
 }
 
 
@@ -168,14 +170,16 @@ body {
 }
 
 .active-filter-button {
-    background-color: #a6b6ff;
-    border-color: #a6b6ff;
+    background-color: #2C86FD;
+    border-color: #2C86FD;
+    color: white;
     outline-width: 0;
 }
 
 .filter-button:hover {
-    background-color: #a6b6ff;
-    border-color: #a6b6ff;
+    background-color: #2C86FD;
+    border-color: #2C86FD;
+    color: white;
 }
 
 .filter-button:focus-visible {

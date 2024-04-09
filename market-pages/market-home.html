@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <link rel="stylesheet" href="/dormitory-frontend//styles/market/market-home-styles.css">
+
+    <script>
+        $(function(){
+            $("#header").load("/header.html");
+        });
+    </script>
+
+
+    <title>Market home page</title>
+</head>
+<body>
+    <div id="header"></div>
+    <main class="main-body-wrapper">
+        <div class="user-buttons-wrapper">
+            <button class="my-products-button">Мои товары</button>
+            <button class="add-product-button">Разместить товар</button>
+            <button class="favorite-products-button">Избранные</button>
+        </div>
+        <div class="market-body-wrapper">
+            <div class="market-side-bar"></div>
+            <div class="market-products-body-wrapper">
+                <div class="input-search-wrapper">
+                    <input type="text" id="products-search-input" class="product-search-input-class" name="product-search" placeholder="Поиск по товарам">
+                    <div class="search-button-wrapper">
+                        <button class="search-button">Найти</button>
+                    </div>
+                </div>
+                <div id="product-rows-wrapper"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/market/compile-products-template.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.visibility = "visible";
+                document.body.style.opacity = "1";
+            }, 500); // задержка в 0.5с
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Обработчик нажатия на кнопку "Мои товары"
+            $(".my-products-button").on("click", function () {
+                window.location.href = "/dormitory-frontend/market-pages/market-my-products.html";
+            });
+
+            // Обработчик нажатия на кнопку "Разместить товар"
+            $(".add-product-button").on("click", function () {
+                window.location.href = "/dormitory-frontend/market-pages/create-product.html";
+            });
+
+            // Обработчик нажатия на кнопку "Избранные"
+            $(".favorite-products-button").on("click", function () {
+                window.location.href = "/dormitory-frontend/market-pages/market-favorites.html";
+            });
+        });
+    </script>
+</body>
+</html>
