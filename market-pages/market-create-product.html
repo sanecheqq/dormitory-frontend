@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Create Page</title>
+
+    <link rel="stylesheet" href="../styles/market/create-product-styles.css">
+
+    <script>
+        $(function(){
+            $("#header").load("../header.html");
+        });
+    </script>
+</head>
+<body>
+    <header id="header"></header>
+    <div class="user-buttons-wrapper">
+        <button class="back-to-products-button">К товарам</button>
+        <button class="add-product-button">Разместить товар</button>
+        <button class="favorite-products-button">Избранные</button>
+    </div>
+    <div class="form-wrapper">
+        <form class="form">
+            <h2 class="form-title">Размещение товара</h2>
+            <div class="form-group">
+                <label for="name">Заголовок товара:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Категория:</label>
+                <select id="category" name="category" required>
+                    <option value="FOOD">Еда</option>
+                    <option value="ELECTRONICS">Электроника</option>
+                    <option value="MALE_CLOTHES">Одежда мужская</option>
+                    <option value="FEMALE_CLOTHES">Одежда женская</option>
+                    <option value="HOUSEHOLD_GOODS">Бытовые товары</option>
+                    <option value="SERVICES">Услуги</option>
+                    <option value="OTHERS">Другое</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Цена:</label>
+                <input type="number" id="price" name="price" min="0" max="1000000" required>
+                <p id="errorMessagePrice" style="color: red;"></p>
+            </div>
+            <div>
+                <label for="images">Изображения:</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple required>
+                <p id="errorMessageImages" style="color: red;"></p>
+            </div>
+            <div>
+                <button id="post-product-button" type="submit">Создать</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/market/nav-buttons.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#images').on('change', function() {
+                if (this.files.length === 0) {
+                    $('#errorMessageImages').text('Необходимо загрузить хотя бы одно изображение');
+                } else if (this.files.length > 10) {
+                    $('#errorMessageImages').text('Максимальное количество изображений - 10');
+                    $(this).val('');
+                } else {
+                    $('#errorMessageImages').text('');
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
+            let postBtn = $('#post-product-button');
+            postBtn.text("Создать");
+            $('.form').submit(function(event) {
+                event.preventDefault();
+
+                postBtn.prop('disabled', true);
+                postBtn.css('cursor', 'wait');
+                postBtn.text("Создание...");
+
+                if ($('#price').val() >= 1000000) {
+                    $('#errorMessageImages').text('Слишком большая стоимость');
+                    postBtn.prop('disabled', false);
+                    postBtn.css('cursor', 'pointer');
+                    postBtn.text("Создать");
+                }
+
+                var formData = new FormData();
+                formData.append('name', $('#name').val());
+                formData.append('category', $('#category').val());
+                formData.append('description', $('#description').val());
+                formData.append('price', $('#price').val());
+                formData.append('address', decodedJWT.address);
+                var images = $('#images')[0].files;
+
+                for (var i = 0; i < images.length; i++) {
+                    formData.append('images', images[i]);
+                }
+
+                $.ajax({
+                    url: 'http://192.168.0.11:8100/products',
+                    type: 'POST',
+                    headers: {
+                        'Access-Control-Allow-Origin': 'http://localhost:63342',
+                        'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+                    },
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        console.log('Запрос успешно отправлен');
+                        console.log(response);
+                        window.location.href = 'market-my-products.html';
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Произошла ошибка при отправке запроса:', status, error);
+                        $('#post-news-button').prop('disabled', false);
+                        postBtn.css('cursor', 'pointer');
+                        postBtn.text("Создать");
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

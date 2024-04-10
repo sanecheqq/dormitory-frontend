@@ -85,26 +85,112 @@ button {
 
     width: 1078px;
     height: auto;
-    min-height: 300px;
+    min-height: 150px;
     margin: 16px auto 0;
     box-sizing: border-box;
 }
 
 .market-side-bar {
+    /*padding-left: 10px;*/
     position: sticky;
     top: 77px;
-    width: 212px;
+    width: 192px;
     background-color: white;
     border-radius: 20px;
-    height: 340px;
+    /*min-height: 150px;*/
+    height: max-content;
+    padding: 20px 10px;
     /* ВРЕМЕННАЯ ВЫСОТА    */
+}
+
+.side-bar-header {
+    margin-top: 0;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none; /* убираем стрелочки для изменения числа*/
+}
+
+.side-bar-filter-section {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.side-bar-filter-section select {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px;
+    width: max-content;
+    height: 28px;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.price-inputs-wrapper {
+    display: flex;
+}
+
+.side-bar-filter-section input {
+    z-index: 3;
+    width: 70px;
+    margin-right: 3px;
+    margin-top: 2px;
+    padding-left: 10px;
+    height: 28px;
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.side-bar-filter-section input:focus,
+.side-bar-filter-section select:focus{
+    outline: 3px solid rgba(104, 166, 253, 0.7);
+}
+
+.side-bar-filter-section label {
+    width: 300px;
+    font-size: 15px;
+    color: #2a2a2a;
+}
+
+.side-filter-button-wrapper {
+    margin-top: 20px;
+    flex-grow: 1;
+}
+
+.filter-button {
+    height: 28px;
+    color: white;
+    font-size: 15px;
+    border: none;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #2C86FD;
+
+    transition: background-color 0.3s ease;
+
+}
+
+.filter-button:hover {
+    background-color: #1267d9;
+    cursor: pointer;
+}
+
+.filter-button:focus-visible {
+    outline: none;
 }
 
 .market-products-body-wrapper {
     width: 830px;
     background-color: white;
     border-radius: 20px;
-    min-height: 300px;
+    min-height: 150px;
     padding: 20px 15px 20px 15px;
 }
 

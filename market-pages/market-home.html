@@ -33,7 +33,33 @@
             <button class="favorite-products-button">Избранные</button>
         </div>
         <div class="market-body-wrapper">
-            <div class="market-side-bar"></div>
+            <div class="market-side-bar">
+                <p class="side-bar-header">Фильтры</p>
+                <div class="side-bar-filter-section">
+                    <label class="category-label">Категории</label>
+                    <select id="category-filter">
+                        <option value="" disabled selected hidden>Выберите категорию</option>
+                        <option value="FOOD">Еда</option>
+                        <option value="ELECTRONICS">Электроника</option>
+                        <option value="MALE_CLOTHES">Одежда мужская</option>
+                        <option value="FEMALE_CLOTHES">Одежда женская</option>
+                        <option value="HOUSEHOLD_GOODS">Бытовые товары</option>
+                        <option value="SERVICES">Услуги</option>
+                        <option value="OTHERS">Другое</option>
+                    </select>
+                </div>
+                <div class="side-bar-filter-section">
+                    <label class="price-label">Цена:</label>
+
+                    <div class="price-inputs-wrapper">
+                        <input type="number" id="price-from" placeholder="Цена от">
+                        <input type="number" id="price-to" min="0" placeholder="до, руб.">
+                    </div>
+                </div>
+                <div class="side-filter-button-wrapper">
+                    <button class="filter-button" type="submit">Применить</button>
+                </div>
+            </div>
             <div class="market-products-body-wrapper">
                 <div class="input-search-wrapper">
                     <input type="text" id="products-search-input" class="product-search-input-class" name="product-search" placeholder="Поиск по товарам">
@@ -41,12 +67,16 @@
                         <button class="search-button">Найти</button>
                     </div>
                 </div>
+                <div class="empty-result-warning-wrapper">
+                    <p id="empty-result-warning-text" style="text-align: center; font-size: 20px"></p>
+                </div>
                 <div id="product-rows-wrapper"></div>
             </div>
         </div>
     </main>
 
     <script src="/scripts/market/compile-products-template.js"></script>
+    <script src="/scripts/auth-check.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {
@@ -55,23 +85,6 @@
             }, 500); // задержка в 0.5с
         });
     </script>
-    <script>
-        $(document).ready(function() {
-            // Обработчик нажатия на кнопку "Мои товары"
-            $(".my-products-button").on("click", function () {
-                window.location.href = "/dormitory-frontend/market-pages/market-my-products.html";
-            });
-
-            // Обработчик нажатия на кнопку "Разместить товар"
-            $(".add-product-button").on("click", function () {
-                window.location.href = "/dormitory-frontend/market-pages/create-product.html";
-            });
-
-            // Обработчик нажатия на кнопку "Избранные"
-            $(".favorite-products-button").on("click", function () {
-                window.location.href = "/dormitory-frontend/market-pages/market-favorites.html";
-            });
-        });
-    </script>
+    <script src="/scripts/market/nav-buttons.js"></script>
 </body>
 </html>

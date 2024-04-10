@@ -1,0 +1,152 @@
+body {
+    font-family: 'Inter', sans-serif;
+    margin-right: 7px;
+    background-color: #EDEEF0;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.user-buttons-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 1078px;
+    margin: 77px auto 0;
+}
+
+.add-product-button {
+    font-family: 'Inter', sans-serif;
+    height: 40px;
+    width: 240px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.back-to-products-button,
+.my-products-button,
+.favorite-products-button {
+    font-family: 'Inter', sans-serif;
+    height: 40px;
+    width: 180px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.back-to-products-button:hover,
+.add-product-button:hover,
+.favorite-products-button:hover,
+.my-products-button:hover {
+    cursor: pointer;
+    background-color: #2974e1;
+}
+
+.form-wrapper {
+    margin-top: 60px;
+    width: 450px;
+    background-color: white;
+    /*margin: 150px auto 0 auto;*/
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    max-width: 400px;
+    margin: 0 auto 0 auto;
+}
+.form-title {
+    color: #2C86FD;
+    font-size: 26px;
+    margin-top: 5px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,textarea {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+}
+
+.form-group input,textarea,select:focus-visible {
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Растягивать только по вертикали */
+}
+
+.form-group select {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    width: 100px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.form label {
+    display: block;
+    /*font-weight: bold;*/
+    margin-bottom: 5px;
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form textarea,
+.form select,
+.form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+}
+
+#category {
+    width: 180px;
+}
+
+option {
+    font-size: 16px;
+}
+
+.form input[type="text"]:focus,
+.form input[type="number"]:focus,
+.form textarea:focus,
+.form select:focus,
+.form input[type="file"]:focus {
+    outline: 3px solid #68a6fd;
+}
+
+#images {
+    font-size: 16px;
+}
+
+#post-product-button {
+    background-color: #2fc90a;
+    color: white;
+    font-size: 18px;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#post-product-button:hover {
+    background-color: #1cb203;
+}
