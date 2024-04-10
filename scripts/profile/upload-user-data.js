@@ -18,7 +18,17 @@ function uploadUserData() {
             } else  {
                 console.log("Hello, USER!");
             }
+            let warningMessage = $('#warning_message');
             const userDto = jsonData.userDTO;
+            if (!userDto.tgUsername || userDto.tgUsername.length === 0 || !userDto.email || userDto.email.length === 0 || !userDto.phoneNumber || userDto.phoneNumber.length === 0) {
+                warningMessage.text("Заполните пустые поля!");
+                $('.header-nav-button').prop('disabled', true);
+                $('.header-nav-button').css('background-color', );
+            } else {
+                $('.header-nav-button').prop('disabled', false);
+            }
+
+
             $('.user-address-text').text(userDto.address);
             $('.username-text').text("@" + userDto.username);
             $('#user-surname-input').val(userDto.surname);

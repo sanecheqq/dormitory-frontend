@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
 
-    $('.all-news-container').on('click', '.img-fluid', function () {
+    $('.all-news-container, .main-body-wrapper').on('click', '.img-fluid', function () {
         const clickedImage = $(this).attr('src');
         const modalImage = $('#modal-image');
         const modalContainer = $('#modal-container-id');
