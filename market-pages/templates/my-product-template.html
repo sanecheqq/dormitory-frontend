@@ -9,8 +9,22 @@
                 {{/each}}
             </div>
             <div class="product-text-content-wrapper">
-                <div class="product-title-wrapper">
-                    <p class="product-title-text">{{name}}</p>
+                <div class="title-dropdown-wrapper">
+                    <div class="product-title-wrapper">
+                        <p class="product-title-text">{{name}}</p>
+                    </div>
+                    {{#unless (eq status "Снят с публикации")}} <!-- Проверяем, если status не равен "Снят с публикации" -->
+                        <div class="user-my-menu-wrapper">
+                            <button class="user-my-menu-button">
+                                <img src="/icons/icons8-more-30.png" style="width: 20px; height: 20px" alt="More Options">
+                            </button>
+                            <div class="user-my-menu-dropdown">
+                                <a class="archive-product-button" style="color: green; font-weight: bold; font-size: 14px">Снять с продажи</a>
+                                <a class="edit-product-button" style="color: orange; font-weight: bold; font-size: 14px">Редактировать</a>
+                                <a class="delete-product-button" style="color: red; font-weight: bold;font-size: 14px">Удалить</a>
+                            </div>
+                        </div>
+                    {{/unless}}
                 </div>
                 <div class="product-status-wrapper">
                     <p class="product-status">{{status}}</p>

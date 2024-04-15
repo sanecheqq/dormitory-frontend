@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="/styles/market/product-page-styles.css">
+    <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
+
+    <script>
+        $(function(){
+            $("#header").load("/header.html");
+        });
+    </script>
+
+
+    <title>Product page</title>
+</head>
+<body>
+    <div id="header"></div>
+    <!-- структура модального окна -->
+
+    <main class="main-body-wrapper">
+        <div id="modal-container-id" class="modal-container">
+            <div id="modal-content-id" class="modal-content">
+                <span class="close">&times;</span>
+                <img id="modal-image" src="" alt="Увеличенное изображение">
+            </div>
+        </div>
+        <div class="user-buttons-wrapper">
+            <button class="back-to-products-button">К товарам</button>
+            <button class="add-product-button">Разместить товар</button>
+            <button class="favorite-products-button">Избранные</button>
+        </div>
+        <div class="product-content-wrapper">
+            <h2 class="product-header"></h2>
+            <div class="product-admin-info" style="visibility: hidden">
+                <p class="admin-info-status"></p>
+            </div>
+            <div class="address-wrapper">
+                <p class="product-address-text">Местонахождение: </p>
+            </div>
+            <div class="field price-wrapper">
+                <p class="product-price-text"></p>
+            </div>
+            <div class="content-images-wrapper">
+                <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                    <!-- Индикаторы -->
+                    <ol class="carousel-indicators"></ol>
+                    <div class="carousel-inner"></div>
+                    <!-- Элементы управления -->
+                    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Предыдущий</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Следующий</span>
+                    </a>
+                </div>
+            </div>
+            <div class="field description-wrapper">
+                <p class="product-description-text"></p>
+            </div>
+            <div class="field contacts-wrapper">
+                <p class="product-contacts-text">Контакты: </p>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="/scripts/market/nav-buttons.js"></script>
+    <script>
+        $(document).ready(function() {
+            const decodedJwt = decodeJWT(localStorage.getItem('jwt'));
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            if (!productId) {
+                console.error('Параметр id не найден в адресной строке.');
+                return;
+            }
+            $.ajax({
+                url: 'http://192.168.0.11:8100/products/' + productId, // Замените 'http://your-api-url' на ваш URL API
+                type: 'GET',
+                headers: {
+                    'Access-Control-Allow-Origin': 'http://localhost:63343', // Добавляем заголовок
+                    'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+                },
+                dataType: 'json',
+                success: function(jsonData) {
+                    console.log('Данные получены:', jsonData);
+                    if (decodedJwt.userRole === 'ADMIN') {
+                        $('.product-admin-info').css('visibility', 'visible');
+                        let productStatus = $('.admin-info-status');
+                        productStatus.text(jsonData.status);
+                        switch (jsonData.status) {
+                            case 'На проверке':
+                                productStatus.css('color', 'orange');
+                                break;
+                            case 'Опубликован':
+                                productStatus.css('color', 'green');
+                                break;
+                            case 'Требует изменений':
+                                productStatus.css('color', 'red');
+                                break;
+                            case 'Снят с публикации':
+                                productStatus.css('color', 'grey');
+                                break;
+                        }
+                    }
+
+                    $('.product-header').text(jsonData.name);
+                    $('.product-address-text').append(jsonData.address);
+                    $('.product-price-text').text(jsonData.price + " ₽");
+                    $('.product-description-text').text(jsonData.description);
+                    $('.product-contacts-text').append(jsonData.tgUsername);
+
+                    var carouselInner = $('#carousel .carousel-inner');
+                    var carouselIndicators = $('#carousel .carousel-indicators');
+
+                    carouselInner.empty();
+                    carouselIndicators.empty();
+
+                    for (var i = 0; i < jsonData.images.length; i++) {
+                        var carouselItem = $('<div>').addClass('carousel-item');
+                        var image = $('<img>').addClass('img-fluid').attr('src', jsonData.images[i].url);
+                        carouselItem.append(image);
+
+                        var indicator = $('<li>').attr({
+                            'data-target': '#carousel',
+                            'data-slide-to': i
+                        });
+                        if (i === 0) {
+                            carouselItem.addClass('active');
+                            indicator.addClass('active');
+                        }
+
+                        carouselInner.append(carouselItem);
+                        carouselIndicators.append(indicator);
+                    }
+
+                },
+                error: function(xhr, status, error) {
+                    // Обработка ошибки запроса
+                    console.error('Ошибка при получении данных:', error);
+                }
+            });
+        });
+
+    </script>
+    <script src="/scripts/news/modal-window.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.visibility = "visible";
+                document.body.style.opacity = "1";
+            }, 500); // задержка в 0.5с
+        });
+    </script>
+</body>
+</html>

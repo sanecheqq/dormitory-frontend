@@ -17,65 +17,6 @@ button {
     flex-direction: column;
 }
 
-.user-buttons-wrapper {
-    display: flex;
-    justify-content: space-evenly;
-
-    width: 1078px;
-    margin: 77px auto 0;
-}
-
-.add-product-button {
-    height: 40px;
-    width: 240px;
-    background-color: #2C86FD;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-
-    transition: background-color 0.3s ease;
-}
-
-.back-to-products-button,
-.my-products-button {
-    height: 40px;
-    width: 180px;
-    background-color: #2C86FD;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-
-    transition: background-color 0.3s ease;
-}
-
-.favorite-products-button {
-    height: 40px;
-    width: 180px;
-    background-color: #2C86FD;
-    border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 20px;
-
-    transition: background-color 0.3s ease;
-}
-
-.back-to-products-button:hover,
-.add-product-button:hover,
-.favorite-products-button:hover,
-.my-products-button:hover {
-    cursor: pointer;
-    background-color: #2974e1;
-}
-
-.back-to-products-button,
-.add-product-button:focus-visible,
-.favorite-products-button:focus-visible,
-.my-products-button:focus-visible {
-    outline: none;
-}
 
 .market-body-wrapper {
     display: flex;
@@ -103,12 +44,27 @@ button {
     /* ВРЕМЕННАЯ ВЫСОТА    */
 }
 
+/* Скрытие стандартной стрелки выпадающего списка и установка серого цвета для новой стрелки */
+#category-filter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: 'Inter', serif;
+
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path d="M2 3l4 4 4-4H2z" fill="%23808080"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 20px; /* Увеличиваем правый отступ, чтобы текст не накладывался на стрелку */
+}
+
+
 .side-bar-header {
     margin-top: 0;
     text-align: center;
     font-weight: bold;
     font-size: 16px;
 }
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -253,7 +209,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .product-row:hover {
-    background-color: #eeeded;
+    background-color: #EDEEF0;
     cursor: pointer;
 }
 
@@ -277,6 +233,82 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 20px;
     font-weight: bold;
     color: #2C86FD;
+}
+
+.title-dropdown-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-my-menu-wrapper {
+    z-index: 100;
+    /*width: 60px;*/
+    position: relative;
+    /*top: -30px;*/
+    /*left: 552px;*/
+}
+
+.user-my-menu-button {
+    z-index: 100;
+    position: relative;
+    background-color: #EDEEF0;
+    width: 30px;
+    height: 30px;
+
+    outline: none;
+    border-radius: 50%;
+    border: none;
+    /*border-left: 1px solid #e7e8ec;*/
+    /*border-top: 1px solid #e7e8ec;*/
+    /*border-bottom: 1px solid #e7e8ec;*/
+}
+
+.user-my-menu-button:focus {
+    outline: none;
+}
+
+.user-my-menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+
+    z-index: 3;
+    outline: none;
+    background-color: #ffffff;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.user-my-menu-dropdown a {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    width: 130px;
+    text-align: left;
+    border: none;
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+
+}
+
+.user-my-menu-dropdown a:hover {
+    background-color: rgba(235, 235, 239, 0.42);
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+}
+
+
+.user-my-menu-wrapper:hover .user-my-menu-dropdown {
+    outline: none;
+    display: block;
+    opacity: 1;
 }
 
 .product-status {

@@ -10,7 +10,8 @@
 
     <title>Create Page</title>
 
-    <link rel="stylesheet" href="../styles/market/create-product-styles.css">
+    <link rel="stylesheet" href="/styles/market/create-product-styles.css">
+    <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
 
     <script>
         $(function(){
@@ -21,8 +22,8 @@
 <body>
     <header id="header"></header>
     <div class="user-buttons-wrapper">
+        <button class="my-products-button">Мои товары</button>
         <button class="back-to-products-button">К товарам</button>
-        <button class="add-product-button">Разместить товар</button>
         <button class="favorite-products-button">Избранные</button>
     </div>
     <div class="form-wrapper">
@@ -63,11 +64,26 @@
             </div>
         </form>
     </div>
-
+    <script>
+        $.ajax({
+            url: 'http://127.0.0.1:8085/user',
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('jwt')
+            },
+            dataType: 'json',
+            success: function (jsonData) {
+                console.log('Получены данные:', jsonData);
+                // let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
+                if (!jsonData.userDTO.tgUsername || jsonData.userDTO.tgUsername.length === 0) {
+                    window.location.href = "/dormitory-frontend/profile-pages/my-profile-page.html";
+                }
+            }
+        });
+    </script>
     <script src="/scripts/decode_jwt.js"></script>
     <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/market/nav-buttons.js"></script>
-
     <script>
         $(document).ready(function() {
             $('#images').on('change', function() {
@@ -106,12 +122,12 @@
                 formData.append('category', $('#category').val());
                 formData.append('description', $('#description').val());
                 formData.append('price', $('#price').val());
-                formData.append('address', decodedJWT.address);
                 var images = $('#images')[0].files;
-
                 for (var i = 0; i < images.length; i++) {
+
                     formData.append('images', images[i]);
                 }
+                formData.append('address', decodedJWT.userAddress);
 
                 $.ajax({
                     url: 'http://192.168.0.11:8100/products',

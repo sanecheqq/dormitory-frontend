@@ -13,7 +13,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
-    <link rel="stylesheet" href="/dormitory-frontend//styles/market/market-home-styles.css">
+    <link rel="stylesheet" href="/styles/market/market-home-styles.css">
+    <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
 
     <script>
         $(function(){
@@ -31,6 +32,7 @@
             <button class="my-products-button">Мои товары</button>
             <button class="add-product-button">Разместить товар</button>
             <button class="favorite-products-button">Избранные</button>
+            <button class="validate-products-button" disabled hidden>Проверка товаров</button>
         </div>
         <div class="market-body-wrapper">
             <div class="market-side-bar">
@@ -77,12 +79,30 @@
 
     <script src="/scripts/market/compile-products-template.js"></script>
     <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="/scripts/market/open-product-on-click.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
+            console.log(decodedJWT)
+            if (decodedJWT.userRole === 'ADMIN') {
+                $('.validate-products-button').show();
+                $('.validate-products-button').prop('disabled', false);
+            } else {
+                $('.validate-products-button').prop('disabled', true);
+            }
+
             setTimeout(function() {
                 document.body.style.visibility = "visible";
                 document.body.style.opacity = "1";
             }, 500); // задержка в 0.5с
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.validate-products-button').on("click", function () {
+                window.location.href = "/dormitory-frontend/market-pages/admin-validate.html";
+            });
         });
     </script>
     <script src="/scripts/market/nav-buttons.js"></script>

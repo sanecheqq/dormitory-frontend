@@ -1,0 +1,42 @@
+<script id="product-template" type="text/x-handlebars-template">
+    {{#each products}}
+        <div class="product-row" id="{{id}}" data-category="{{category}}">
+            <div class="images-wrapper">
+                {{#each images}}
+                    {{#if @first}}
+                        <img src="{{this.url}}" class="image-preview">
+                    {{/if}}
+                {{/each}}
+            </div>
+            <div class="product-text-content-wrapper">
+                <div class="title-dropdown-wrapper">
+                    <div class="product-title-wrapper">
+                        <p class="product-title-text">{{name}}</p>
+                    </div>
+                    <div class="admin-menu">
+                        <button class="admin-menu-button">
+                            <img src="/icons/icons8-more-30.png" style="width: 20px; height: 20px" alt="More Options">
+                        </button>
+                        <div class="admin-menu-dropdown">
+                            <a class="approve-product-button" style="color: green; font-weight: bold; font-size: 14px">Одобрить</a>
+                            <a class="reject-product-button" style="color: red; font-weight: bold; font-size: 14px">Отклонить</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-status-wrapper">
+                    <p class="product-status" style="margin-top: 0">{{status}}</p>
+                </div>
+                <div class="product-price-wrapper">
+                    <p class="product-price-text">{{price}} ₽</p>
+                </div>
+                <div class="product-description-wrapper">
+                    <p class="product-description-text">{{description}}</p>
+                </div>
+                <div class="product-contacts-wrapper">
+                    <p class="product-contacts-text">Контакты: {{tgUsername}}</p>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</script>

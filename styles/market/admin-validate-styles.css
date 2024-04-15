@@ -1,0 +1,100 @@
+.title-dropdown-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.admin-menu {
+    z-index: 100;
+    /*width: 60px;*/
+    position: relative;
+    /*top: -30px;*/
+    /*left: 552px;*/
+}
+
+.admin-menu-button {
+    z-index: 100;
+    position: relative;
+    background-color: #EDEEF0;
+    width: 30px;
+    height: 30px;
+
+    outline: none;
+    border-radius: 50%;
+    border: none;
+    /*border-left: 1px solid #e7e8ec;*/
+    /*border-top: 1px solid #e7e8ec;*/
+    /*border-bottom: 1px solid #e7e8ec;*/
+}
+
+.admin-menu-button:focus {
+    outline: none;
+}
+
+.admin-menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+
+    z-index: 3;
+    outline: none;
+    background-color: #ffffff;
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.admin-menu-dropdown a {
+    display: block;
+    padding: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+
+}
+
+.admin-menu-dropdown a:hover {
+    background-color: rgba(235, 235, 239, 0.42);
+    font-style: normal;
+    color: black;
+    text-decoration: none;
+}
+
+
+.admin-menu:hover .admin-menu-dropdown {
+    outline: none;
+    display: block;
+    opacity: 1;
+}
+
+.submit-all-button-wrapper {
+    width: max-content;
+    margin: 15px auto 0;
+}
+
+.submit-all-button {
+    height: 42px;
+    width: 200px;
+    background-color: #3ed22c;
+    border-radius: 7px;
+    border: none;
+
+    color: white;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-all-button:hover {
+    background-color: #14b200;
+    cursor: pointer;
+}
+
+.submit-all-button:focus-visible {
+    outline: none;
+}

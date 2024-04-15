@@ -1,0 +1,81 @@
+button {
+    font-family: 'Inter', serif;
+}
+
+.main-body-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-buttons-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 1078px;
+    margin: 77px auto 0;
+}
+
+.user-buttons-wrapper button:focus-visible,
+.user-buttons-wrapper button:focus {
+
+    outline: none;
+}
+
+.add-product-button {
+    height: 40px;
+    width: 240px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.back-to-products-button,
+.my-products-button,
+.favorite-products-button {
+    height: 40px;
+    width: 180px;
+    background-color: #2C86FD;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.validate-products-button {
+    height: 40px;
+    width: 200px;
+    background-color: #3ed22c;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.validate-products-button:hover {
+    background-color: #14b200;
+    cursor: pointer;
+}
+
+.back-to-products-button:hover,
+.add-product-button:hover,
+.favorite-products-button:hover,
+.my-products-button:hover {
+    cursor: pointer;
+    background-color: #2974e1;
+}
+
+.back-to-products-button,
+.add-product-button:focus-visible,
+.favorite-products-button:focus-visible,
+.my-products-button:focus-visible,
+.validate-products-button:focus-visible {
+    outline: none;
+}

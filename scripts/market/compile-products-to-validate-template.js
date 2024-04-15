@@ -1,6 +1,6 @@
 function compileProducts() {
     $.ajax({
-        url: 'http://192.168.0.11:8100/products/my',
+        url: 'http://192.168.0.11:8100/admin/validation',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -10,12 +10,13 @@ function compileProducts() {
         success: function (jsonData) {
             console.log('Получены данные:', jsonData);
             if (!jsonData.products || jsonData.products.length === 0) {
-                $('#empty-result-warning-text').text("Вы не опубликовывали товаров!");
+                $('#empty-result-warning-text').text("Пока что нечего проверять!");
+                $('.submit-all-button').hide();
                 console.log("products are empty");
                 return;
             }
-            $.get('/market-pages/templates/my-product-template.html', function(productTemplate) {
-                let templateHtml = $(productTemplate).filter('#my-product-template').html();
+            $.get('/market-pages/templates/validate-product-template.html', function(productTemplate) {
+                let templateHtml = $(productTemplate).filter('#product-template').html();
 
                 let template = Handlebars.compile(templateHtml);
                 $('#product-rows-wrapper').append(template(jsonData));
@@ -44,11 +45,7 @@ function compileProducts() {
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', xhr);
-            if (xhr.status === 404) {
-                $('#empty-result-warning-text').text("Вы не опубликовывали товаров");
-            } else {
-                $('#empty-result-warning-text').text("Непредвиденная ошибка на сервере");
-            }
+            $('#empty-result-warning-text').text("Непредвиденная ошибка на сервере");
             // window.location.href = '/dormitory-frontend/auth-page.html';
         }
     });
