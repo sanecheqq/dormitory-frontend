@@ -29,10 +29,10 @@
         <div class="profile-main-container">
             <div class="title-row-with-user-address">
                 <div class="profile-title-wrapper">
-                    <p class="profile-title-text">Профиль</p>
+                    <p class="profile-title-text">Личный кабинет</p>
                 </div>
                 <div class="user-address-wrapper">
-                    <p class="user-address-text">Улица Адмирала Балуева, д. 54, к. 0</p>
+                    <p class="user-address-text"></p>
                 </div>
             </div>
             <div class="menu-wrapper">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="username-wrapper">
-                <p class="username-text">@sobaka</p>
+                <p class="username-text">-</p>
             </div>
             <div class="main-user-info-wrapper">
                 <div class="general-user-info-title-wrapper">
@@ -55,21 +55,21 @@
                     <div class="column-user-nsp">
                         <div class="user-data-field">
                             <label for="user-surname-input">Фамилия:</label>
-                            <input type="text" id="user-surname-input" class="user-data-field-input" name="user-surname" value="Кончев" readonly>
+                            <input type="text" id="user-surname-input" class="user-data-field-input" name="user-surname" value="-" readonly>
                         </div>
                         <div class="user-data-field">
                             <label for="user-name-input">Имя:</label>
-                            <input type="text" id="user-name-input" class="user-data-field-input" name="user-name" value="Епистафий" readonly>
+                            <input type="text" id="user-name-input" class="user-data-field-input" name="user-name" value="-" readonly>
                         </div>
                         <div class="user-data-field">
                             <label for="user-patronymic-input">Отчество:</label>
-                            <input type="text" id="user-patronymic-input" class="user-data-field-input" name="user-patronymic" value="Абдурагулментович" readonly>
+                            <input type="text" id="user-patronymic-input" class="user-data-field-input" name="user-patronymic" value="-" readonly>
                         </div>
                     </div>
                     <div class="column-user-contacts">
                         <div class="user-data-field">
                             <label for="user-phone-number-input">Телефон:</label>
-                            <input type="text" id="user-phone-number-input" class="user-data-field-input" name="user-phone-number" value="8(800)-555-35-35" readonly>
+                            <input type="text" id="user-phone-number-input" class="user-data-field-input" name="user-phone-number" value="-" readonly>
                         </div>
                         <div class="user-data-field">
                             <label for="user-email-input">Почта:</label>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="user-data-field">
                             <label for="user-telegram-id-input">Телеграм:</label>
-                            <input type="text" id="user-telegram-id-input" class="user-data-field-input" name="user-telegram-id" value="@ne_konch_ya" readonly>
+                            <input type="text" id="user-telegram-id-input" class="user-data-field-input" name="user-telegram-id" value="-" readonly>
                         </div>
                     </div>
                 </div>
@@ -88,11 +88,11 @@
                     <div class="row-user-certificates">
                         <div class="user-data-field certificate-field">
                             <label for="user-fluoro-start">Флюорография начало:</label>
-                            <p class="user-certificates-text-block" type="text" id="user-fluoro-start">01-09-2023</p>
+                            <p class="user-certificates-text-block" type="text" id="user-fluoro-start">-</p>
                         </div>
                         <div class="user-data-field certificate-field">
                             <label for="user-fluoro-end">Флюорография конец:</label>
-                            <p class="user-certificates-text-block" type="text" id="user-fluoro-end">24-03-2024</p>
+                            <p class="user-certificates-text-block" type="text" id="user-fluoro-end">-</p>
                         </div>
                         <div class="days-left-wrapper">
                             <p id="days-left-fluoro" class="days-left-text">Дней осталось: </p>
@@ -101,12 +101,12 @@
 
                     <div class="row-user-certificates">
                         <div class="user-data-field certificate-field">
-                            <label for="user-zpp-start">ЗПП начало:</label>
-                            <p class="user-certificates-text-block" type="text" id="user-zpp-start">01-09-2023</p>
+                            <label for="user-zpp-start">ЗППП начало:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-zpp-start">-</p>
                         </div>
                         <div class="user-data-field certificate-field">
-                            <label for="user-zpp-end">ЗПП конец:</label>
-                            <p class="user-certificates-text-block" type="text" id="user-zpp-end">05-05-2024</p>
+                            <label for="user-zpp-end">ЗППП конец:</label>
+                            <p class="user-certificates-text-block" type="text" id="user-zpp-end">-</p>
                         </div>
                         <div class="days-left-wrapper">
                             <p id="days-left-zpp" class="days-left-text">Дней осталось: </p>
@@ -114,7 +114,6 @@
                     </div>
                 </div>
                 <div class="bottom-buttons-wrapper">
-                    <!--class=""button-edit edit-active"-->
                     <button class="button-edit" type="button">Редактировать</button>
                     <button class="button-log-out" type="button">Выйти</button>
                 </div>
@@ -127,8 +126,8 @@
     <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/decode_jwt.js"></script>
     <script src="/scripts/profile/upload-user-data.js"></script>
-    <script src="/scripts/profile/buttorn-edit-user-data.js"></script>
-    <script src="/scripts/profile/buttorn-edit-user-data.js"></script>
+    <script src="/scripts/profile/button-edit-user-data.js"></script>
+    <script src="/scripts/profile/button-edit-user-data.js"></script>
     <script src="/scripts/profile/log-out.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {

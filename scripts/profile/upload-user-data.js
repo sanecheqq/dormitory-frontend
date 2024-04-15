@@ -40,10 +40,18 @@ function uploadUserData() {
 
             let fluoroDaysLeft = calcDaysDiff($('#user-fluoro-end').text());
             let text = $('#days-left-fluoro').text();
+            if (fluoroDaysLeft < 0) {
+                text = "Дней просрочено: ";
+                fluoroDaysLeft *= -1;
+            }
             $('#days-left-fluoro').text(text + fluoroDaysLeft);
 
             let zppDaysLeft = calcDaysDiff($('#user-zpp-end').text());
             let zppText = $('#days-left-zpp').text();
+            if (zppDaysLeft < 0) {
+                zppText = "Дней просрочено: ";
+                zppDaysLeft *= -1;
+            }
             $('#days-left-zpp').text(zppText + zppDaysLeft);
 
         },
@@ -53,11 +61,12 @@ function uploadUserData() {
         }
     });
 }
-
 function calcDaysDiff(strDate) {
     let now = new Date();
+    if (strDate === '-' || strDate.length < 8)
+        return "не установлено";
     let mdy = strDate.split("-");
     let endDate = new Date(mdy[2], mdy[1] - 1, mdy[0]);
-    return Math.max(Math.round((endDate.getTime() - now.getTime()) / (1000 * 3600 * 24)), 0);
+    return Math.round((endDate.getTime() - now.getTime()) / (1000 * 3600 * 24));
 }
 

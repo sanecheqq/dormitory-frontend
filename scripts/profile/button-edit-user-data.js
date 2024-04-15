@@ -1,12 +1,12 @@
-const button = $('.button-edit')
+const buttonEdit = $('.button-edit')
 const email_input = $("#user-email-input");
 const phone_input = $("#user-phone-number-input");
 const tg_input = $("#user-telegram-id-input");
 let warning_input = $('#warning_message');
 
 $(document).ready(function(){
-    button.click(function(){
-        if (button.hasClass('edit-active')) {
+    buttonEdit.click(function(){
+        if (buttonEdit.hasClass('edit-active')) {
             user_data = {
                 email: email_input.val(),
                 phoneNumber: phone_input.val(),
@@ -14,12 +14,12 @@ $(document).ready(function(){
             };
             console.log(user_data);
             if (email_input.val().length < 4 || phone_input.val().length < 9 || tg_input.val().length < 3) {
-                warning_input.text('Введенные данные некорректны либо поля пусты.');
+                warning_input.text('Введенные данные некорректны либо поля пусты');
                 return;
             }
             let promise = patchUser(user_data);
             promise.then(() => {
-                button.text('Сохранить');
+                buttonEdit.text('Сохранить');
                 window.location.reload();
             }).catch((error_message) => {
                 warning_input.text("");
@@ -42,9 +42,9 @@ $(document).ready(function(){
                 }
             });
         } else {
-            button.addClass('edit-active');
-            button.text('Сохранить')
-            warning_input.text('Вы можете изменить поля "Телефон", "Почта" и "Телеграм".');
+            buttonEdit.addClass('edit-active');
+            buttonEdit.text('Сохранить')
+            warning_input.text('Вы можете изменить поля "Телефон", "Почта" и "Телеграм"');
 
             email_input.removeAttr("readonly");
             email_input.addClass('edit-input-active');
@@ -71,8 +71,8 @@ function patchUser(user_data) {
             contentType: 'application/json',
             data: JSON.stringify(user_data),
             success: function (jsonData) {
-                button.removeAttr('edit-active');
-                button.text('Редактировать');
+                buttonEdit.removeAttr('edit-active');
+                buttonEdit.text('Редактировать');
                 console.log('Получены данные:', jsonData);
                 resolve("no-error");
             },

@@ -23,6 +23,11 @@ body {
     margin-bottom: 20px;
 }
 
+.registration-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -30,26 +35,34 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 .form-group input {
-    width: 100%;
+    width: 93%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+}
+
+.form-group input:focus {
+    outline: 3px solid #68a6fd;
+
 }
 
 .btn-login {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background-color: #007bff;
     border: none;
     border-radius: 5px;
     color: #fff;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     transition: background-color 0.3s;
+
+    align-self: center;
 }
 
 .btn-login:hover {
