@@ -23,7 +23,7 @@ body {
     margin-bottom: 20px;
 }
 
-.registration-form {
+#registration-form {
     display: flex;
     flex-direction: column;
 }
@@ -62,7 +62,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
 
-    align-self: center;
+    margin: 0 auto;
 }
 
 .btn-login:hover {

@@ -248,11 +248,11 @@ button:focus-visible {
     width: 100px;
     height: auto;
     padding: 10px 0 10px;
-    background-color: #ff5959;
+    background-color: #ff2f2f;
 }
 
 .button-log-out:hover {
-    background-color: #fd3a3a;
+    background-color: #d51010;
 }
 
 .button-log-out:focus-visible {

@@ -41,7 +41,7 @@ body {
 .form-group select {
     font-family: 'Inter', sans-serif;
     font-size: 15px;
-    width: 100px;
+    width: max-content;
     padding: 8px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -57,9 +57,16 @@ input[type="text"],
 textarea,
 input[type="file"] {
     width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+input[type="file"]:focus {
+    outline: 3px solid #68a6fd;
 }
 
 

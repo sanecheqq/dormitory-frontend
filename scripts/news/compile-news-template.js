@@ -1,12 +1,12 @@
 function compileAllNews() {
     $.ajax({
-        url: 'http://192.168.0.11:8090/news', // URL вашего сервера
-        type: 'GET', // Метод запроса
+        url: 'http://192.168.0.18:8090/news',
+        type: 'GET',
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:63342', // Добавляем заголовок
+            'Access-Control-Allow-Origin': 'http://localhost:63342',
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
         },
-        dataType: 'json', // Тип данных, которые вы ожидаете получить от сервера
+        dataType: 'json',
         success: function (jsonData) {
             console.log('Получены данные:', jsonData);
             let userRole = decodeJWT(localStorage.getItem('jwt')).userRole;
@@ -22,7 +22,7 @@ function compileAllNews() {
         },
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', error);
-            window.location.href = '/dormitory-frontend/auth-page.html';
+            // window.location.href = '/dormitory-frontend/auth-page.html';
         }
     });
 }

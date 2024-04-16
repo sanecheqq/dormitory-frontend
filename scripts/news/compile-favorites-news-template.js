@@ -1,6 +1,6 @@
 function compileFavoriteNews() {
     $.ajax({
-        url: 'http://192.168.0.11:8090/news/favorites',
+        url: 'http://192.168.0.18:8090/news/favorites',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63342',

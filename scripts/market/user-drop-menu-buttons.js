@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function sendArchiveProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.11:8100/products/sold/' + id,
+        url: 'http://192.168.0.18:8100/products/sold/' + id,
         type: 'PATCH',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -39,7 +39,7 @@ function sendArchiveProductRequest(id) {
 
 function sendDeleteProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.11:8100/products/' + id,
+        url: 'http://192.168.0.18:8100/products/' + id,
         type: 'DELETE',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',

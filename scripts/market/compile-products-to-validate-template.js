@@ -1,6 +1,6 @@
 function compileProducts() {
     $.ajax({
-        url: 'http://192.168.0.11:8100/admin/validation',
+        url: 'http://192.168.0.18:8100/admin/validation',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -27,13 +27,13 @@ function compileProducts() {
                         case 'На проверке':
                             $productStatus.css('color', 'orange');
                             break;
-                        case 'Опубликован':
+                        case 'Опубликовано':
                             $productStatus.css('color', 'green');
                             break;
                         case 'Требует изменений':
                             $productStatus.css('color', 'red');
                             break;
-                        case 'Снят с публикации':
+                        case 'Снято с публикации':
                             $productStatus.css('color', 'grey');
                             break;
                     }

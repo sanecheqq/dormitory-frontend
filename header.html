@@ -14,6 +14,7 @@
             margin: 0 auto;
             background-color: #ffffff;
             position: fixed;
+
             top: 0;
             left: 0;
             right: 0;
@@ -21,6 +22,7 @@
             border-bottom-right-radius: 20px;
             z-index: 9998;
             border-bottom: 1px solid #e7e8ec;
+            display: flex;
         }
         nav {
             position: absolute;
@@ -29,6 +31,13 @@
             transform: translate(-50%, -50%);
             display: flex;
             flex-wrap: nowrap;
+        }
+
+        .profile-button-wrapper {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 94%;
         }
 
         nav button {
@@ -47,19 +56,59 @@
             border-radius: 10px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            margin-left: 30px;
         }
         .header-nav-button:focus {
             outline: none;
+        }
+
+        .button-log-out {
+            font-family: 'Inter', serif;
+            font-size: 20px;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100px;
+            height: 44px;
+            padding: 10px 0 10px;
+            background-color: #ff4c4c;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-log-out:hover {
+            background-color: #fc2323;
+
+        }
+
+        .header-nav-button:hover {
+            background-color: #1267d9;
+            color: white;
+        }
+        .logo-wrapper {
+            margin-left: 20px;
+            width: max-content;
+        }
+        .mai-logo {
+            width: 68px;
+            height: 68px;
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="logo-wrapper">
+            <img class="mai-logo" src="/icons/mai_logo.jpg"/>
+        </div>
         <nav>
-            <button class="header-nav-button" id="newsButton">Новости</button>
-            <button class="header-nav-button" id="profileButton">Профиль</button>
-            <button class="header-nav-button" id="marketButton">Маркет</button>
+            <button class="header-nav-button" id="newsButton" style="line-height: normal">Новости</button>
+            <button class="header-nav-button" id="profileButton" style="line-height: normal">Профиль</button>
+            <button class="header-nav-button" id="marketButton" style="line-height: normal">Маркет</button>
+            <button class="header-nav-button" id="bookWmButton" style="line-height: normal">Стирка</button>
         </nav>
+        <div class="profile-button-wrapper">
+            <button class="button-log-out" style="line-height: normal">Выйти</button>
+        </div>
     </header>
 
     <script>
@@ -79,7 +128,16 @@
                 window.location.href = "/dormitory-frontend/market-pages/market-home.html";
             });
         });
+
+        $(document).ready(function() {
+            $(".button-log-out").click(function() {
+                localStorage.removeItem('jwt');
+                window.location.href = '/dormitory-frontend/auth-page.html';
+            });
+        });
     </script>
+
+
 </body>
 
 </html>

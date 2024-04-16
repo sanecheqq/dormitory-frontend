@@ -53,7 +53,9 @@
                     window.location.href = '/dormitory-frontend/profile-pages/my-profile-page.html';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    console.error('Ошибка при отправке запроса на сервер:', errorThrown);
+                    console.error('Ошибка при отправке запроса на сервер:', jqXHR);
+                    console.error(textStatus);
+                    console.error(errorThrown);
                 }
             });
         });

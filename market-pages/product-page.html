@@ -92,10 +92,10 @@
                 return;
             }
             $.ajax({
-                url: 'http://192.168.0.11:8100/products/' + productId, // Замените 'http://your-api-url' на ваш URL API
+                url: 'http://192.168.0.18:8100/products/' + productId,
                 type: 'GET',
                 headers: {
-                    'Access-Control-Allow-Origin': 'http://localhost:63343', // Добавляем заголовок
+                    'Access-Control-Allow-Origin': 'http://localhost:63343',
                     'Authorization': 'Bearer ' + localStorage.getItem('jwt')
                 },
                 dataType: 'json',
@@ -109,13 +109,13 @@
                             case 'На проверке':
                                 productStatus.css('color', 'orange');
                                 break;
-                            case 'Опубликован':
+                            case 'Опубликовано':
                                 productStatus.css('color', 'green');
                                 break;
                             case 'Требует изменений':
                                 productStatus.css('color', 'red');
                                 break;
-                            case 'Снят с публикации':
+                            case 'Снято с публикации':
                                 productStatus.css('color', 'grey');
                                 break;
                         }

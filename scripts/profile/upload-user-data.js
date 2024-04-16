@@ -30,13 +30,23 @@ function uploadUserData() {
 
 
             $('.user-address-text').text(userDto.address);
-            $('.username-text').text("@" + userDto.username);
+            $('.username-text').text(userDto.username);
             $('#user-surname-input').val(userDto.surname);
             $('#user-name-input').val(userDto.name);
             $('#user-patronymic-input').val(userDto.patronymic);
             $('#user-phone-number-input').val(userDto.phoneNumber);
             $('#user-email-input').val(userDto.email);
             $('#user-telegram-id-input').val(userDto.tgUsername);
+            if (jsonData.fluoroCertificateDTO) {
+                $('#user-fluoro-start').text(jsonData.fluoroCertificateDTO.startDate);
+                $('#user-fluoro-end').text(jsonData.fluoroCertificateDTO.expireDate);
+            }
+
+            if (jsonData.stdsCertificateDTO) {
+                $('#user-zppp-start').text(jsonData.stdsCertificateDTO.startDate);
+                $('#user-zppp-end').text(jsonData.stdsCertificateDTO.expireDate);
+            }
+
 
             let fluoroDaysLeft = calcDaysDiff($('#user-fluoro-end').text());
             let text = $('#days-left-fluoro').text();
@@ -46,7 +56,7 @@ function uploadUserData() {
             }
             $('#days-left-fluoro').text(text + fluoroDaysLeft);
 
-            let zppDaysLeft = calcDaysDiff($('#user-zpp-end').text());
+            let zppDaysLeft = calcDaysDiff($('#user-zppp-end').text());
             let zppText = $('#days-left-zpp').text();
             if (zppDaysLeft < 0) {
                 zppText = "Дней просрочено: ";
@@ -63,10 +73,11 @@ function uploadUserData() {
 }
 function calcDaysDiff(strDate) {
     let now = new Date();
-    if (strDate === '-' || strDate.length < 8)
+    if (strDate === '-' || strDate.length < 8) {
         return "не установлено";
+    }
     let mdy = strDate.split("-");
-    let endDate = new Date(mdy[2], mdy[1] - 1, mdy[0]);
+    let endDate = new Date(mdy[0], mdy[1] - 1, mdy[2]);
     return Math.round((endDate.getTime() - now.getTime()) / (1000 * 3600 * 24));
 }
 
