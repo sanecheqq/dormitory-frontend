@@ -5,6 +5,37 @@
     <meta charset="UTF-8">
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+        jQuery(document).ready(function($){
+            var mywindow = $(window);
+            var mypos = mywindow.scrollTop();
+            mywindow.scroll(function() {
+                if (mypos > 40) {
+                    if(mywindow.scrollTop() > mypos)
+                    {
+                        $('#stickyheaders').addClass('headerup');
+                    }
+                    else
+                    {
+                        $('#stickyheaders').removeClass('headerup');
+                    }
+                }
+                mypos = mywindow.scrollTop();
+            });
+        });
+    </script>
+
+
+    <style>
+        #stickyheaders{
+            -webkit-transition: transform 0.34s ease;
+            transition : transform 0.34s ease;
+        }
+        .headerup{
+            transform: translateY(-110px); /*adjust this value to the height of your header*/
+        }
+    </style>
     <style>
         header {
             height: 70px;
@@ -23,7 +54,10 @@
             z-index: 9998;
             border-bottom: 1px solid #e7e8ec;
             display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
         nav {
             position: absolute;
             top: 50%;
@@ -62,23 +96,27 @@
             outline: none;
         }
 
-        .button-log-out {
-            font-family: 'Inter', serif;
-            font-size: 20px;
-            color: white;
+        .header-logout-wrapper {
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            width: 100px;
+            width: 44px;
             height: 44px;
-            padding: 10px 0 10px;
+            /*padding: 5px 5px;*/
             background-color: #ff4c4c;
             transition: background-color 0.3s ease;
+            margin-right: 10px;
+            text-align: center;
         }
 
-        .button-log-out:hover {
-            background-color: #fc2323;
+        .header-logout-wrapper:hover {
+            background-color: #d51010;
+        }
 
+        .logout-icon {
+            margin: 7px 0 0 3px;
+            width: 30px;
+            height: 30px;
         }
 
         .header-nav-button:hover {
@@ -86,7 +124,7 @@
             color: white;
         }
         .logo-wrapper {
-            margin-left: 20px;
+            margin-left: 10px;
             width: max-content;
         }
         .mai-logo {
@@ -96,7 +134,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="stickyheaders">
         <div class="logo-wrapper">
             <img class="mai-logo" src="/icons/mai_logo.jpg"/>
         </div>
@@ -106,8 +144,9 @@
             <button class="header-nav-button" id="marketButton" style="line-height: normal">Маркет</button>
             <button class="header-nav-button" id="bookWmButton" style="line-height: normal">Стирка</button>
         </nav>
-        <div class="profile-button-wrapper">
-            <button class="button-log-out" style="line-height: normal">Выйти</button>
+        <div class="header-logout-wrapper">
+            <img class="logout-icon" src="/icons8-logout-48.png"/>
+<!--            <button class="button-log-out" style="line-height: normal">Выйти</button>-->
         </div>
     </header>
 
@@ -130,7 +169,7 @@
         });
 
         $(document).ready(function() {
-            $(".button-log-out").click(function() {
+            $(".header-logout-wrapper").click(function() {
                 localStorage.removeItem('jwt');
                 window.location.href = '/dormitory-frontend/auth-page.html';
             });
