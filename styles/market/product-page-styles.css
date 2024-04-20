@@ -15,7 +15,7 @@ button {
 
 .product-content-wrapper {
     padding: 20px 15px;
-    width: 840px;
+    width: 640px;
     margin: 80px auto 0;
     min-height: 300px;
     background-color: white;
@@ -27,6 +27,18 @@ button {
     font-size: 26px;
     font-weight: bold;
     color: #2C86FD;
+}
+/* todo: ПОФИКСИТЬ СТИЛИ ДЛЯ p */
+p {
+    margin: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.product-price-text {
+    padding-top: 5px;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 .content-images-wrapper {

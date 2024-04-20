@@ -90,6 +90,7 @@ function loadNextPage() {
         },
         dataType: 'json',
         success: function (jsonData) {
+            console.log(currentPage);
             console.log('Получены данные:', jsonData);
             currentPage++;
 
