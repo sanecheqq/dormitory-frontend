@@ -50,7 +50,10 @@
                 <input type="file" id="documents" name="documents" multiple accept=".pdf,.doc,.docx">
                 <p id="errorMessageDocuments" style="color: red;"></p>
             </div>
-            <button  id="post-news-button" type="submit">Создать</button>
+            <div class="bot-buttons-wrapper">
+                <button id="post-news-button" type="submit">Создать</button>
+                <button id="cancel-button" type="reset">Отмена</button>
+            </div>
         </form>
     </div>
 
@@ -73,6 +76,13 @@
                 } else {
                     $('#errorMessageDocuments').text('');
                 }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#cancel-button').click(function () {
+                window.location.href = "/dormitory-frontend/news-pages/news-page.html";
             });
         });
     </script>
@@ -107,7 +117,7 @@
 
                     console.log(formData);
                     $.ajax({
-                        url: 'http://192.168.0.18:8090/admin/news',
+                        url: 'http://192.168.0.20:8090/admin/news',
                         type: 'POST',
                         headers: {
                             'Access-Control-Allow-Origin': 'http://localhost:63342',
@@ -132,6 +142,7 @@
                 });
 
             } else {
+                $('h2').text("Изменение новости");
                 $('#warningMessage').text('Внимание! При обновлении новости старые изображения и файлы будут сброшены. Пожалуйста, загрузите заново необходимые изображения и файлы.')
                 postBtn.text("Обновить");
                 $('.form-group #title').val(urlParams.get('title'));
@@ -161,7 +172,7 @@
                     }
 
                     $.ajax({
-                        url: 'http://192.168.0.18:8090/admin/news/'+urlParams.get('id'),
+                        url: 'http://192.168.0.20:8090/admin/news/'+urlParams.get('id'),
                         type: 'PUT',
                         headers: {
                             'Access-Control-Allow-Origin': 'http://localhost:63342',
