@@ -6,22 +6,19 @@
     <title>Header</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-
         jQuery(document).ready(function($){
-            var mywindow = $(window);
-            var mypos = mywindow.scrollTop();
-            mywindow.scroll(function() {
+            var mywindowHeader = $(window);
+            var mypos = mywindowHeader.scrollTop();
+            mywindowHeader.scroll(function() {
                 if (mypos > 40) {
-                    if(mywindow.scrollTop() > mypos)
-                    {
+                    if(mywindowHeader.scrollTop() > mypos) {
                         $('#stickyheaders').addClass('headerup');
                     }
-                    else
-                    {
+                    else {
                         $('#stickyheaders').removeClass('headerup');
                     }
                 }
-                mypos = mywindow.scrollTop();
+                mypos = mywindowHeader.scrollTop();
             });
         });
     </script>
@@ -35,6 +32,7 @@
         .headerup{
             transform: translateY(-110px); /*adjust this value to the height of your header*/
         }
+
     </style>
     <style>
         header {

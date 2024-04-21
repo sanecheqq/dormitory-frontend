@@ -421,6 +421,28 @@ img.active-add-icon {
     margin: auto;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    width: 60px;
+}
+
+.carousel-control-next {
+    border-radius: 0 10px 10px 0;
+}
+
+.carousel-control-prev {
+    border-radius: 10px 0 0 10px;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background: rgba(49,49,49,.3);
+}
+
+.carousel-indicators li:hover {
+    background-color: grey;
+}
+
 .content-documents-wrapper {
     width: auto;
     height: auto;

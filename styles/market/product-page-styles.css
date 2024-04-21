@@ -16,7 +16,7 @@ button {
 .product-content-wrapper {
     padding: 20px 15px;
     width: 640px;
-    margin: 80px auto 0;
+    margin: 16px auto 0;
     min-height: 300px;
     background-color: white;
     border-radius: 20px;
@@ -28,11 +28,20 @@ button {
     font-weight: bold;
     color: #2C86FD;
 }
-/* todo: ПОФИКСИТЬ СТИЛИ ДЛЯ p */
+
 p {
     margin: 0;
     margin-top: 5px;
-    margin-left: 5px;
+}
+
+.product-contacts-text {
+    font-weight: bold;
+    color: #a1a1a1;
+}
+
+.product-description-text {
+    font-size: 16px;
+    text-align: justify;
 }
 
 .product-price-text {
@@ -45,21 +54,43 @@ p {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .carousel-item img {
-    width: 598px;
-    height: 300px;
+    width: 610px;
+    height: 600px;
     object-fit: cover;
     cursor: pointer;
     border-radius: 10px;
 }
 
 #carousel {
-    width: 598px;
-    height: 300px;
+    width: 610px;
+    height: 600px;
     margin: auto;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 60px;
+}
+
+.carousel-control-next {
+    border-radius: 0 10px 10px 0;
+}
+
+.carousel-control-prev {
+    border-radius: 10px 0 0 10px;
+}
+
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
+    background: rgba(49,49,49,.3);
+}
+
+.carousel-indicators li:hover {
+    background-color: grey;
 }
 
 /* МОДАЛЬНОЕ ОКНО */

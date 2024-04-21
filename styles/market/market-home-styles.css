@@ -41,8 +41,9 @@ button {
     /*min-height: 150px;*/
     height: max-content;
     padding: 20px 10px;
-    /* ВРЕМЕННАЯ ВЫСОТА    */
+    transition : top 0.34s ease;
 }
+
 
 /* Скрытие стандартной стрелки выпадающего списка и установка серого цвета для новой стрелки */
 #category-filter {
@@ -218,6 +219,43 @@ input[type=number]::-webkit-outer-spin-button {
     height: 232px;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.product-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-to-favorites-button {
+    width: max-content;
+    height: max-content;
+    padding: 0;
+    border: none;
+    border-radius: 20%;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color 0.3s ease;
+}
+
+.add-to-favorites-button:hover {
+    background-color: rgba(117, 172, 255, 0.3);
+    cursor: pointer;
+}
+
+.add-to-favorites-button:focus-visible {
+    outline: none;
+}
+
+.add-to-favorites-button img{
+    display: none;
+}
+
+.add-to-favorites-img {
+    width: 25px;
+    height: 25px;
+}
+
+img.favorite-active-icon {
+    display: inline-block;
 }
 
 .product-text-content-wrapper {

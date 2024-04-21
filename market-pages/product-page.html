@@ -48,7 +48,7 @@
                 <p class="admin-info-status"></p>
             </div>
             <div class="address-wrapper">
-                <p class="product-address-text">Местонахождение: </p>
+                <p class="product-address-text">Адрес: </p>
             </div>
             <div class="field price-wrapper">
                 <p class="product-price-text"></p>
@@ -70,10 +70,12 @@
                 </div>
             </div>
             <div class="field description-wrapper">
+                <h2 style="margin-top: 10px; margin-bottom: 0; font-size: 25px; font-weight: bold;">Описание</h2>
                 <p class="product-description-text"></p>
             </div>
             <div class="field contacts-wrapper">
-                <p class="product-contacts-text">Контакты: </p>
+                <h2 style="margin-top: 10px; margin-bottom: 0;font-size: 25px; font-weight: bold;">Контакты</h2>
+                <p class="product-contacts-text">Телеграм: </p>
             </div>
 
         </div>
@@ -92,7 +94,7 @@
                 return;
             }
             $.ajax({
-                url: 'http://192.168.0.18:8100/products/' + productId,
+                url: 'http://192.168.0.20:8100/products/' + productId,
                 type: 'GET',
                 headers: {
                     'Access-Control-Allow-Origin': 'http://localhost:63343',

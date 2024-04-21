@@ -12,8 +12,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script>
+        Handlebars.registerHelper('eq', function(arg1, arg2, options) {
+            return arg1 === arg2;
+        });
 
-    <link rel="stylesheet" href="/styles/market/admin-validate-styles.css">
+    </script>
+
     <link rel="stylesheet" href="/styles/market/market-home-styles.css">
     <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
 
@@ -23,7 +28,8 @@
         });
     </script>
 
-    <title>Валидация товаров</title>
+
+    <title>Избранные</title>
 </head>
 <body>
     <div id="header"></div>
@@ -31,49 +37,23 @@
         <div class="user-buttons-wrapper">
             <button class="back-to-products-button">К товарам</button>
             <button class="add-product-button">Разместить товар</button>
-            <button class="favorite-products-button">Избранные</button>
+            <button class="my-products-button">Мои товары</button>
         </div>
         <div class="market-body-wrapper" style="height: auto; min-height: 0">
             <div class="market-products-body-wrapper" style="margin: 0 auto 0; height: auto; min-height: 0">
-                <h2 style="margin-top: 0; text-align: center;">Список товаров для проверки</h2>
+                <h2 style="margin-top: 0; text-align: center">Избранные публикации</h2>
                 <div class="empty-result-warning-wrapper">
                     <p id="empty-result-warning-text" style="text-align: center; font-size: 20px"></p>
                 </div>
                 <div id="product-rows-wrapper"></div>
-                <div class="submit-all-button-wrapper">
-                    <button class="submit-all-button">Принять все</button>
-                </div>
             </div>
         </div>
     </main>
-
-    <script src="/scripts/market/patch-product-status-request.js"></script>
-    <script src="/scripts/market/approve-reject-product-drop-down-menu.js"></script>
     <script src="/scripts/auth-check.js"></script>
-    <script src="/scripts/market/compile-products-to-validate-template.js"></script>
+    <script src="/scripts/market/product-add-to-favorite.js"></script>
     <script src="/scripts/market/open-product-on-click.js"></script>
-    <script>
-        $(document).ready(function() {
-            $(".submit-all-button").on("click", function () {
-                $.ajax({
-                    url: 'http://192.168.0.20:8100/admin/all-products',
-                    type: 'PATCH',
-                    headers: {
-                        'Access-Control-Allow-Origin': 'http://localhost:63343',
-                        'Authorization': 'Bearer ' + localStorage.getItem('jwt')
-                    },
-                    success: function () {
-                        console.log('Запрос на одобрение всех выполнен');
-                        window.location.reload();
-                    },
-                    error: function (xhr, status, error) {
-                        console.error('Ошибка при запросе:', xhr);
-                    }
-                });
-            });
-
-        });
-    </script>
+    <script src="/scripts/market/compile-favorites-template.js"></script>
+    <script src="/scripts/market/user-drop-menu-buttons.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             setTimeout(function() {

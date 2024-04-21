@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
     $('.all-news-container').on('click', '.delete-news-button', function() {
         const newsId = $(this).closest('.news-item').attr('id');
         $.ajax({
-            url: 'http://192.168.0.18:8090/admin/news/' + newsId,
+            url: 'http://192.168.0.20:8090/admin/news/' + newsId,
             type: 'DELETE',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('jwt')

@@ -11,6 +11,11 @@
             <div class="product-text-content-wrapper">
                 <div class="product-title-wrapper">
                     <p class="product-title-text">{{name}}</p>
+                    <button class="add-to-favorites-button {{#if favorite}}add-fav-btn-active{{/if}}">
+                        <img class="add-to-favorites-img {{#unless favorite}}favorite-active-icon{{/unless}}" src="/icons/icons8-favorite-product-not-active-50.png" alt="not-favorite"/>
+                        <img class="add-to-favorites-img {{#if favorite}}favorite-active-icon{{/if}}" src="/icons/icons8-favorite-product-active-50.png" alt="favorite"/>
+
+                    </button>
                 </div>
                 <div class="product-price-wrapper">
                     <p class="product-price-text">{{price}} ₽</p>
@@ -19,7 +24,7 @@
                     <p class="product-description-text">{{description}}</p>
                 </div>
                 <div class="product-contacts-wrapper">
-                    <p class="product-contacts-text">Контакты: tg: {{tgUsername}}</p>
+                    <p class="product-contacts-text">Телеграм: {{tgUsername}}</p>
                 </div>
             </div>
         </div>

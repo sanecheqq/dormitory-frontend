@@ -1,6 +1,6 @@
 function compileAllNews() {
     $.ajax({
-        url: 'http://192.168.0.18:8090/news',
+        url: 'http://192.168.0.20:8090/news',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63342',

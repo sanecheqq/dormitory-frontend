@@ -51,7 +51,7 @@
                     </select>
                 </div>
                 <div class="side-bar-filter-section">
-                    <label class="price-label">Цена:</label>
+                    <label class="price-label">Цена</label>
 
                     <div class="price-inputs-wrapper">
                         <input type="number" id="price-from" placeholder="Цена от">
@@ -78,6 +78,7 @@
     </main>
 
     <script src="/scripts/market/compile-products-template.js"></script>
+    <script src="/scripts/market/product-add-to-favorite.js"></script>
     <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/decode_jwt.js"></script>
     <script src="/scripts/market/open-product-on-click.js"></script>
@@ -106,5 +107,24 @@
         });
     </script>
     <script src="/scripts/market/nav-buttons.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+            var mywindow = $(window);
+            var mypos2 = mywindow.scrollTop();
+            var sidebar = $('.market-side-bar');
+            // подвижный сайдбар
+            mywindow.scroll(function() {
+                if (mypos2 > 40) {
+                    if(mywindow.scrollTop() > mypos2) {
+                        sidebar.css('top', '1px');
+                    } else {
+                        sidebar.css('top', '77px');
+                    }
+                }
+                mypos2 = mywindow.scrollTop();
+            });
+        });
+    </script>
+
 </body>
 </html>
