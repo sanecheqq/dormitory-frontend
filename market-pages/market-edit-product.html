@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <title>Изменение товара</title>
+
+    <link rel="stylesheet" href="/styles/market/create-update-product-styles.css">
+    <link rel="stylesheet" href="/styles/market/update-product-styles.css">
+    <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
+
+    <script>
+        $(function(){
+            $("#header").load("../header.html");
+        });
+    </script>
+</head>
+<body>
+    <header id="header"></header>
+    <div class="user-buttons-wrapper">
+        <button class="my-products-button">Мои товары</button>
+        <button class="back-to-products-button">К товарам</button>
+        <button class="favorite-products-button">Избранные</button>
+    </div>
+    <div id="modal-container-id" class="modal-container">
+        <div id="modal-content-id" class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-image" src="" alt="Увеличенное изображение">
+        </div>
+    </div>
+    <div class="form-wrapper">
+        <form class="form">
+            <h2 class="form-title">Изменение товара</h2>
+            <div class="form-group">
+                <label for="name">Заголовок товара:</label>
+                <input type="text" id="name" name="name" required/>
+            </div>
+            <div class="form-group">
+                <label for="category">Категория:</label>
+                <select id="category" name="category" required>
+                    <option value="FOOD">Еда</option>
+                    <option value="ELECTRONICS">Электроника</option>
+                    <option value="MALE_CLOTHES">Одежда мужская</option>
+                    <option value="FEMALE_CLOTHES">Одежда женская</option>
+                    <option value="HOUSEHOLD_GOODS">Бытовые товары</option>
+                    <option value="SERVICES">Услуги</option>
+                    <option value="OTHERS">Другое</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Цена:</label>
+                <input type="number" id="price" name="price" min="0" max="1000000" required>
+                <p id="errorMessagePrice" style="color: red;"></p>
+            </div>
+            <label>Ранее загруженные изображения:</label>
+            <div id="old-images-wrapper">
+                <p id="old-images-warning-message" style="margin: 0; color: #efa10f;"></p>
+                <script id="old-images-template" type="text/x-handlebars-template">
+                    {{#each images}}
+                        <div class="image-with-button-wrapper">
+                            <div class="button-delete-wrapper">
+                                <img class="delete-img-icon" src="/icons/icons8-delete-red-48.png"/>
+                            </div>
+                            <div class="image-wrapper">
+                                <img class="edit-product-image" id="{{this.id}}" src="{{this.url}}" style="width: 50px; height: 50px;" alt="здесь могла бы быть картинка"/>
+                            </div>
+                        </div>
+                    {{/each}}
+                </script>
+
+            </div>
+            <div>
+                <label for="images">Новые изображения для добавления:</label>
+                <input type="file" id="images" name="images" accept="image/*" multiple required>
+                <p id="errorMessageImages" style="color: red;"></p>
+            </div>
+            <div>
+                <button id="update-product-button" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+    <script src="/scripts/news/modal-window.js"></script>
+    <script src="/scripts/market/get-product-request.js"></script>
+    <script src="/scripts/decode_jwt.js"></script>
+        <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/market/delete-image-from-old.js"></script>
+    <script src="/scripts/market/nav-buttons.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#images').on('change', function() {
+                if (this.files.length === 0) {
+                    $('#errorMessageImages').text('Необходимо загрузить хотя бы одно изображение');
+                } else if (this.files.length > 10) {
+                    $('#errorMessageImages').text('Максимальное количество изображений - 10');
+                    $(this).val('');
+                } else {
+                    $('#errorMessageImages').text('');
+                }
+            });
+        });
+    </script>
+    <script src="/scripts/market/update-product-request.js"></script>
+
+</body>
+</html>

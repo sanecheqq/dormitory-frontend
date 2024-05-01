@@ -36,7 +36,7 @@ function doFirstSearch() {
     searchText = $('#products-search-input').val();
     console.log(searchText);
     $.ajax({
-        url: 'http://192.168.0.20:8100/products',
+        url: 'http://192.168.0.15:8100/products',
         type: 'GET',
         data: { page: 0, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price }, // Указываем страницу 1 и текст поиска
         headers: {
@@ -81,7 +81,7 @@ function loadNextPage() {
     isLoading = true;
     console.log("load next page")
     $.ajax({
-        url: 'http://192.168.0.20:8100/products',
+        url: 'http://192.168.0.15:8100/products',
         type: 'GET',
         data: { page: currentPage, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price},
         headers: {

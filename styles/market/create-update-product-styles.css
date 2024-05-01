@@ -136,7 +136,8 @@ option {
     font-size: 16px;
 }
 
-#post-product-button {
+#post-product-button,
+#update-product-button {
     background-color: #2fc90a;
     color: white;
     font-size: 18px;
@@ -147,6 +148,7 @@ option {
     transition: background-color 0.3s ease;
 }
 
-#post-product-button:hover {
+#post-product-button:hover,
+#update-product-button:hover {
     background-color: #1cb203;
 }

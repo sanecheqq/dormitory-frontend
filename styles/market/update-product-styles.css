@@ -1,0 +1,72 @@
+/* МОДАЛЬНОЕ ОКНО */
+
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(162, 162, 162, 0.03);
+}
+
+.modal-content img {
+    max-width: 90%;
+    max-height: 90%;
+
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#old-images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.image-with-button-wrapper {
+    width: min-content;
+    position: relative;
+    margin-left: 10px;
+}
+
+
+.delete-img-icon {
+    background-color: rgba(250, 181, 181, 0.58);
+    border-radius: 5px;
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: background-color 0.3s ease;
+}
+
+.delete-img-icon:hover {
+    background-color: rgba(250, 181, 181, 0.84);
+    cursor: pointer;
+}
+
+.edit-product-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}

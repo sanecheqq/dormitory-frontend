@@ -10,7 +10,7 @@
 
     <title>Create Page</title>
 
-    <link rel="stylesheet" href="/styles/market/create-product-styles.css">
+    <link rel="stylesheet" href="/styles/market/create-update-product-styles.css">
     <link rel="stylesheet" href="/styles/market/nav-buttons-styles.css">
 
     <script>
@@ -130,7 +130,7 @@
                 formData.append('address', decodedJWT.userAddress);
 
                 $.ajax({
-                    url: 'http://192.168.0.20:8100/products',
+                    url: 'http://192.168.0.15:8100/products',
                     type: 'POST',
                     headers: {
                         'Access-Control-Allow-Origin': 'http://localhost:63342',

@@ -1,6 +1,6 @@
 function compileProducts() {
     $.ajax({
-        url: 'http://192.168.0.20:8100/products/favorites',
+        url: 'http://192.168.0.15:8100/products/favorites',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',

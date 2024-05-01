@@ -12,6 +12,13 @@ $(document).ready(function() {
         window.location.reload();
     });
 
+    $productRowsWrapper.on('click', '.edit-product-button', function (event) {
+        event.stopPropagation();
+        var productRow = $(this).closest('.product-row');
+        let id = productRow.attr('id');
+        window.location.href = `market-edit-product.html?id=${id}`;
+    });
+
     $productRowsWrapper.on('click', '.delete-product-button', function (event) {
         event.stopPropagation();
         var productRow = $(this).closest('.product-row');
@@ -22,7 +29,7 @@ $(document).ready(function() {
 
 function sendArchiveProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.20:8100/products/sold/' + id,
+        url: 'http://192.168.0.15:8100/products/sold/' + id,
         type: 'PATCH',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -39,7 +46,7 @@ function sendArchiveProductRequest(id) {
 
 function sendDeleteProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.20:8100/products/' + id,
+        url: 'http://192.168.0.15:8100/products/' + id,
         type: 'DELETE',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
