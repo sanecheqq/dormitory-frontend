@@ -1,0 +1,7 @@
+.user-buttons-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    width: 650px;
+    margin: 77px auto 0;
+}

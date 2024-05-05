@@ -1,0 +1,129 @@
+body {
+    background-color: #EDEEF0;
+    font-family: 'Inter', serif;
+    font-weight: 400;
+    font-style: normal;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.15s;
+}
+
+button {
+    font-family: 'Inter', serif;
+}
+
+.main-body-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-body {
+    display: flex;
+    width: 650px;
+    height: auto;
+    min-height: 300px;
+    margin: 16px auto 0;
+
+    border-radius: 20px;
+    background-color: white;
+}
+
+#wm-items-wrapper {
+    width: 100%;
+    padding: 12px;
+}
+
+.wm-item {
+    flex-grow: 1;
+    min-height: 100px;
+
+    background-color: #F4F4F4;
+    border-radius: 20px;
+    padding: 10px 25px 10px 25px;
+
+    margin-bottom: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.wm-title-text {
+    margin: 0;
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.time-ranges-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.time-ranges-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.time-range {
+    width: 130px;
+    height: 58px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* ACTIVE TIME RANGE */
+
+.active {
+    background-color: #2C86FD;
+}
+
+.active:hover {
+    background-color: #1568d7;
+    cursor: pointer;
+}
+
+.active .time-range-text {
+    color: white;
+}
+
+.active .status-text {
+    color: #29E718;
+    font-weight: bold;
+}
+
+/* BOOKED TIME RANGE */
+.booked {
+    background: #DEDEDE;
+}
+
+.booked:hover {
+    background: #cbcbcb;
+    cursor: pointer;
+}
+
+.booked .time-range-text {
+    color: #666565;
+}
+
+.booked .status-text {
+    color: #787878;
+    font-weight: bold;
+}
+
+.time-range-text-wrapper {
+    text-align: center;
+}
+
+.time-range-text,
+.status-text {
+    margin: 0;
+}
+
+.time-range-text {
+    font-size: 18px;
+}

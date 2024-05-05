@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#header").load("/header.html");
+        });
+    </script>
+
+    <link rel="stylesheet" href="/styles/booking-wm/booking-home-styles.css">
+    <link rel="stylesheet" href="/styles/booking-wm/booking-nav-buttons-styles.css">
+    <link rel="stylesheet" href="/styles/modal-window-styles.css">
+
+
+    <title>Бронирование стирки</title>
+</head>
+<body>
+    <div id="header"></div>
+
+    <div id="modal-container-id" class="modal-container">
+        <div id="modal-content-id" class="modal-content">
+            <div class="close-button-wrapper">
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-content-body-wrapper">
+                <div class="text-content-wrapper">
+                    <p id="modal-time-range-text">Время: <span id="modal-time-span"></span> </p>
+                    <p id="modal-status-text">Статус: <span id="modal-status-span"></span></p>
+                    <p id="modal-booked-user-text">Контакты: <span id="modal-contacts-span"></span></p>
+                    <label for="with-drier" style="font-size: 18px;">
+                        Сушилка: <input id="with-drier" type="checkbox" name="drier">
+                    </label>
+                </div>
+                <div class="modal-booking-buttons">
+                    <button class="book-button">Забронировать</button>
+                    <button class="cancel-button">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="main-body-wrapper">
+        <div class="user-buttons-wrapper">
+            <button class="my-bookings-button">Мои брони</button>
+            <button class="book-on-today-button">Бронь на сегодня</button>
+            <button class="book-on-tomorrow-button">Бронь на завтра</button>
+            <!-- todo: NAV BUTTONS IN BOOKING ARE HERE-->
+        </div>
+        <div class="booking-body">
+            <div id="wm-items-wrapper">
+                <div class="wm-item" id="1">
+                    <div class="wm-title-wrapper">
+                        <h2 class="wm-title-text">Стиральная машина № 1</h2>
+                    </div>
+                    <div class="time-ranges-wrapper">
+                        <div class="time-ranges-row ">
+                            <div class="time-range active tr1">
+                                <div class="time-range-text-wrapper">
+                                    <p class="time-range-text">8:00 - 9:45</p>
+                                </div>
+                                <div class="status-text-wrapper">
+                                    <p class="status-text">Свободно</p>
+                                </div>
+                            </div>
+                            <div class="time-range booked tr2">
+                                <div class="time-range-text-wrapper">
+                                    <p class="time-range-text">9:45 - 11:15</p>
+                                </div>
+                                <div class="status-text-wrapper">
+                                    <p class="status-text">Занято</p>
+                                </div>
+                            </div>
+                            <div class="time-range active tr3">
+                                <div class="time-range-text-wrapper">
+                                    <p class="time-range-text">11:15 - 13:00</p>
+                                </div>
+                                <div class="status-text-wrapper">
+                                    <p class="status-text">Свободно</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="time-ranges-row">
+                            <div class="time-range active tr4"></div>
+                            <div class="time-range active tr5"></div>
+                            <div class="time-range active tr6"></div>
+                        </div>
+                        <div class="time-ranges-row">
+                            <div class="time-range active tr7"></div>
+                            <div class="time-range active tr8"></div>
+                            <div class="time-range active tr9"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/booking-wm/compile-wm-template.js"></script>
+    <script src="/scripts/booking-wm/modal-window.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.visibility = "visible";
+                document.body.style.opacity = "1";
+            }, 500); // задержка в 0.5с
+        });
+    </script>
+</body>
+</html>
