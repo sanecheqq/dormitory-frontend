@@ -14,9 +14,17 @@ function compileProducts() {
                 console.log("products are empty");
                 return;
             }
+            jsonData.products.sort(function(a, b) {
+                var statusOrder = {
+                    "На проверке": 1,
+                    "Требует изменений": 2,
+                    "Опубликовано": 3,
+                    "Снято с публикации": 4
+                };
+                return statusOrder[a.status] - statusOrder[b.status];
+            });
             $.get('/market-pages/templates/my-product-template.html', function(productTemplate) {
                 let templateHtml = $(productTemplate).filter('#my-product-template').html();
-
                 let template = Handlebars.compile(templateHtml);
                 $('#product-rows-wrapper').append(template(jsonData));
                 jsonData.products.forEach(function(product) {

@@ -21,6 +21,7 @@
             <label for="password">Пароль:</label>
             <input type="password" id="password" name="password" required>
         </div>
+        <p id="auth-error-message" style="color: red; margin: 0 0 10px 0;"></p>
         <button type="submit" class="btn-login">Войти</button>
     </form>
 </div>
@@ -53,6 +54,11 @@
                     window.location.href = '/dormitory-frontend/profile-pages/my-profile-page.html';
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
+                    if (jqXHR.status === 409) {
+                        $('#auth-error-message').text('Неверный логин или пароль');
+                    } else {
+                        $('#auth-error-message').text('Ошибка при авторизации');
+                    }
                     console.error('Ошибка при отправке запроса на сервер:', jqXHR);
                     console.error(textStatus);
                     console.error(errorThrown);

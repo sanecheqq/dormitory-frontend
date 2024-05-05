@@ -6,7 +6,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
 
     <title>Изменение товара</title>
 
@@ -16,12 +19,13 @@
 
     <script>
         $(function(){
-            $("#header").load("../header.html");
+            $("#header").load("/header.html");
         });
     </script>
 </head>
 <body>
-    <header id="header"></header>
+    <div id="header"></div>
+
     <div class="user-buttons-wrapper">
         <button class="my-products-button">Мои товары</button>
         <button class="back-to-products-button">К товарам</button>
@@ -54,7 +58,7 @@
             </div>
             <div class="form-group">
                 <label for="description">Описание:</label>
-                <textarea id="description" name="description" required></textarea>
+                <textarea id="description" name="description" style="height: 100px;" required></textarea>
             </div>
             <div class="form-group">
                 <label for="price">Цена:</label>
@@ -71,7 +75,7 @@
                                 <img class="delete-img-icon" src="/icons/icons8-delete-red-48.png"/>
                             </div>
                             <div class="image-wrapper">
-                                <img class="edit-product-image" id="{{this.id}}" src="{{this.url}}" style="width: 50px; height: 50px;" alt="здесь могла бы быть картинка"/>
+                                <img class="edit-product-image" id="{{file_id}}" src="{{url}}" alt="здесь могла бы быть картинка"/>
                             </div>
                         </div>
                     {{/each}}
@@ -80,7 +84,7 @@
             </div>
             <div>
                 <label for="images">Новые изображения для добавления:</label>
-                <input type="file" id="images" name="images" accept="image/*" multiple required>
+                <input type="file" id="images" name="images" accept="image/*" multiple>
                 <p id="errorMessageImages" style="color: red;"></p>
             </div>
             <div>
@@ -88,12 +92,15 @@
             </div>
         </form>
     </div>
-    <script src="/scripts/news/modal-window.js"></script>
-    <script src="/scripts/market/get-product-request.js"></script>
     <script src="/scripts/decode_jwt.js"></script>
-        <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/auth-check.js"></script>
+
+    <script src="/scripts/market/get-product-request.js"></script>
+    <script src="/scripts/market/update-product-request.js"></script>
     <script src="/scripts/market/delete-image-from-old.js"></script>
+
     <script src="/scripts/market/nav-buttons.js"></script>
+    <script src="/scripts/news/modal-window.js"></script>
     <script>
         $(document).ready(function() {
             $('#images').on('change', function() {
@@ -108,7 +115,6 @@
             });
         });
     </script>
-    <script src="/scripts/market/update-product-request.js"></script>
 
 </body>
 </html>

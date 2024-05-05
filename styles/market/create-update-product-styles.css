@@ -4,7 +4,7 @@ body {
     background-color: #EDEEF0;
     display: flex;
     align-items: center;
-    height: 100vh;
+    height: auto;
     flex-direction: column;
 }
 
@@ -54,6 +54,7 @@ body {
 
 .form-wrapper {
     margin-top: 16px;
+    margin-bottom: 20px;
     width: 450px;
     background-color: white;
     /*margin: 150px auto 0 auto;*/

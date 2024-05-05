@@ -14,8 +14,10 @@ $.ajax({
         $('#description').text(jsonData.description);
         $('#price').val(jsonData.price);
         //todo: чек названия переменных
+
         let template = Handlebars.compile($('#old-images-template').html());
-        $('#old-images-wrapper').html(template(jsonData.images));
+        // console.log(template);
+        $('#old-images-wrapper').append(template(jsonData));
 
         // let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
 

@@ -23,21 +23,26 @@ $(document).ready(function() {
 
         var imageIds = [];
         $('#old-images-wrapper .edit-product-image').each(function() {
-            var imageUrl = $(this).attr('src');
-            var imageId = imageUrl.substring(imageUrl.lastIndexOf('/') + 1, imageUrl.lastIndexOf('.'));
-            imageIds.push(imageId);
+
+            formData.append('oldImages', $(this).attr('id'));
+            imageIds.push($(this).attr('id'));
         });
         console.log(imageIds);
 
+
         var images = $('#images')[0].files;
         for (var i = 0; i < images.length; i++) {
-            formData.append('images', images[i]);
+            formData.append('newImages', images[i]);
         }
-
+        if (imageIds.length === 0 && images.length === 0) {
+            console.log("ВАРНИНГ МЕССЕДЖ ЮЗЕРУ: 0 ФОТОК БЫТЬ НЕ МОЖЕТ");
+            return;
+        }
+        let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
         formData.append('address', decodedJWT.userAddress);
 
         $.ajax({
-            url: 'http://192.168.0.15:8100/products',
+            url: 'http://192.168.0.15:8100/products/' + productId,
             type: 'PUT',
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:63342',
@@ -53,6 +58,7 @@ $(document).ready(function() {
             },
             error: function(xhr, status, error) {
                 console.error('Произошла ошибка при отправке запроса:', status, error);
+                console.log(xhr);
                 $('#post-news-button').prop('disabled', false);
                 postBtn.css('cursor', 'pointer');
                 postBtn.text("Создать");
