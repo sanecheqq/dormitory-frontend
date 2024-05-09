@@ -1,0 +1,20 @@
+<script id="my-booking-template" type="text/x-handlebars-template">
+    {{#each bookings}}
+        <div class="my-booking-item" id="{{id}}" wmNumber="{{wmNumber}}">
+            <div class="my-booking-text-content">
+                <div class="my-booking-title-wrapper">
+                    <p class="my-booking-title-text">Стиральная машина № <span class="my-booking-wm-num-span">{{wmNumber}}</span></p>
+                </div>
+                <div class="my-booking-time-wrapper">
+                    <p class="my-booking-time-text">Время: <span class="my-booking-time-span">{{startTime}} - {{endTime}}</span></p>
+                </div>
+                <div class="my-booking-drier-wrapper">
+                    <p class="my-booking-drier-text">Сушилка: <span class="my-booking-drier-span">{{#if withDrier}}да{{else}}нет{{/if}}</span></p>
+                </div>
+            </div>
+            <div class="my-booking-buttons-wrapper">
+                <button class="delete-my-booking-button">Удалить бронь</button>
+            </div>
+        </div>
+    {{/each}}
+</script>

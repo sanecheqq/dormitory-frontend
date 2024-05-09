@@ -21,10 +21,11 @@
 
     <link rel="stylesheet" href="/styles/booking-wm/booking-main-styles.css">
     <link rel="stylesheet" href="/styles/booking-wm/booking-nav-buttons-styles.css">
+    <link rel="stylesheet" href="/styles/booking-wm/booking-admin-styles.css">
     <link rel="stylesheet" href="/styles/modal-window-styles.css">
 
 
-    <title>Бронирование на сегодня</title>
+    <title>Панель администратора</title>
 </head>
 <body>
     <div id="header"></div>
@@ -34,54 +35,56 @@
                 <span class="close">&times;</span>
             </div>
             <div class="modal-content-body-wrapper">
-                <div class="text-content-wrapper">
-                    <p id="modal-wm-number-text">Стиральная машина № <span id="modal-wm-number-span"></span></p>
-                    <p id="modal-date-range-text">Дата: <span id="modal-date-span"></span> </p>
-                    <p id="modal-time-range-text">Время: <span id="modal-time-span"></span> </p>
-                    <p id="modal-status-text">Статус: <span id="modal-status-span"></span></p>
-                    <p id="modal-booked-user-text">Телеграм: <span id="modal-contacts-span"></span></p>
-                    <label for="with-drier" style="font-size: 18px;">
-                        Сушилка: <input id="with-drier" type="checkbox" name="drier">
-                    </label>
+                <div class="text-content-wrapper" style="margin-bottom: 10px">
+                    <h2 style="margin: 0 0 10px;font-weight: 700;">Добавление стиральной машины</h2>
+                    <label for="new-wm-number" style="font-size: 16px; margin-top: 7px">Введите номер машины:</label>
+                    <input id="new-wm-number" name="wm-number" type="number">
                 </div>
                 <div class="modal-booking-buttons">
-                    <button class="book-button">Забронировать</button>
+                    <button class="add-wm-modal-button">Создать</button>
                     <button class="cancel-button">Отмена</button>
                 </div>
             </div>
         </div>
     </div>
 
+
     <main class="main-body-wrapper">
         <div class="user-buttons-wrapper">
-            <button class="my-bookings-button">Мои брони</button>
-<!--            <button class="book-on-today-button">Бронь на сегодня</button>-->
+                    <button class="my-bookings-button">Мои брони</button>
+            <button class="book-on-today-button">Бронь на сегодня</button>
             <button class="book-on-tomorrow-button">Бронь на завтра</button>
-            <button class="admin-manage-button">Панель управления</button>
         </div>
         <div class="booking-body">
             <div class="booking-body-title-wrapper">
-                <h2 class="booking-body-title-text">Бронирование на сегодня</h2>
+                <h2 class="booking-body-title-text">Панель управления стиральными машинами</h2>
             </div>
-            <div id="wm-items-wrapper">
+            <div class="admin-address-text-wrapper">
+                <p class="admin-address-text">Ваш адрес: <span id="admin-address-value"></span></p>
+            </div>
+            <div id="wm-panel-wrapper">
+                <h2 id="admin-warning-message"></h2>
+            </div>
+            <div class="add-new-wm-button-wrapper">
+                <button class="add-new-wm-button">Добавить стиральную машину</button>
             </div>
         </div>
     </main>
 
-    <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/decode_jwt.js"></script>
-    <script src="/scripts/booking-wm/compile-wm-today-template.js"></script>
+    <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/booking-wm/modal-window-add-new-wm.js"></script>
+
+    <script src="/scripts/booking-wm/compile-wm-admin-template.js"></script>
     <script src="/scripts/booking-wm/modal-window.js"></script>
     <script src="/scripts/booking-wm/wm-nav-buttons.js"></script>
-    <script src="/scripts/booking-wm/book-time-range.js"></script>
+    <script src="/scripts/booking-wm/wm-admin-buttons.js"></script>
+    <!--<script src="/scripts/booking-wm/book-time-range.js"></script>-->
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+
             setTimeout(function() {
-                let decodedJWT = decodeJWT(localStorage.getItem('jwt'));
-                if (decodedJWT.userRole !== 'ADMIN') {
-                    $('.admin-manage-button').prop('disabled', true).hide();
-                }
                 document.body.style.visibility = "visible";
                 document.body.style.opacity = "1";
             }, 500); // задержка в 0.5с

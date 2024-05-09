@@ -5,3 +5,37 @@
     width: 650px;
     margin: 77px auto 0;
 }
+
+.user-buttons-wrapper button:focus-visible,
+.user-buttons-wrapper button:focus {
+    outline: none;
+}
+
+.my-bookings-button,
+.book-on-today-button,
+.book-on-tomorrow-button,
+.admin-manage-button {
+    height: 40px;
+    min-width: 180px;
+    background-color: #549bf8;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 20px;
+
+    transition: background-color 0.3s ease;
+}
+
+.user-buttons-wrapper button:hover {
+    cursor: pointer;
+    background-color: #2974e1;
+}
+
+.admin-manage-button {
+    background-color: #3ed22c;
+}
+
+.user-buttons-wrapper .admin-manage-button:hover {
+    cursor: pointer;
+    background-color: #14b200;
+}

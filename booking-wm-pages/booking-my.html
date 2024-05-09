@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+
+    <script>
+        $(function(){
+            $("#header").load("/header.html");
+        });
+    </script>
+
+    <link rel="stylesheet" href="/styles/booking-wm/booking-main-styles.css">
+    <link rel="stylesheet" href="/styles/booking-wm/booking-nav-buttons-styles.css">
+    <link rel="stylesheet" href="/styles/booking-wm/booking-my-styles.css">
+    <link rel="stylesheet" href="/styles/modal-window-styles.css">
+
+
+    <title>Мои брони</title>
+</head>
+<body>
+    <div id="header"></div>
+
+
+    <main class="main-body-wrapper">
+        <div class="user-buttons-wrapper">
+    <!--        <button class="my-bookings-button">Мои брони</button>-->
+            <button class="book-on-today-button">Бронь на сегодня</button>
+            <button class="book-on-tomorrow-button">Бронь на завтра</button>
+        </div>
+        <div class="booking-body">
+            <div class="booking-body-title-wrapper">
+                <h2 class="booking-body-title-text">Мои бронирования</h2>
+            </div>
+            <div id="my-bookings-wrapper">
+                <h2 id="my-warning-message" hidden></h2>
+                <div id="my-bookings-today" hidden>
+                    <h2 class="my-book-header">Сегодня</h2>
+                </div>
+                <div id="my-bookings-tomorrow" hidden>
+                    <h2 class="my-book-header">Завтра</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/scripts/auth-check.js"></script>
+    <script src="/scripts/decode_jwt.js"></script>
+    <script src="/scripts/booking-wm/compile-my-booking-template.js"></script>
+    <script src="/scripts/booking-wm/modal-window.js"></script>
+    <script src="/scripts/booking-wm/wm-nav-buttons.js"></script>
+    <script src="/scripts/booking-wm/delete-booking.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                document.body.style.visibility = "visible";
+                document.body.style.opacity = "1";
+            }, 500); // задержка в 0.5с
+        });
+    </script>
+</body>
+</html>

@@ -17,7 +17,7 @@
 
     width: max-content;
     height: max-content;
-    padding: 20px;
+    padding: 23px 20px 20px;
 
     top: 50%;
     left: 50%;
@@ -43,7 +43,6 @@
 }
 
 .text-content-wrapper {
-    margin-bottom: 10px;
 }
 
 .text-content-wrapper p {
@@ -53,12 +52,70 @@
 }
 
 #modal-status-span,
-#modal-time-span {
-    font-weight: bold;
+#modal-time-span,
+#modal-date-span {
+    font-weight: 600;
 }
 input[type="checkbox"] {
     height: 18px;
     width: 18px;
     margin-right: 5px; /* Отступ между чекбоксом и текстом */
     vertical-align: middle; /* Выравнивание по вертикали */
+}
+
+.modal-booking-buttons {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.modal-booking-buttons button {
+    /*width: min-content;*/
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.modal-booking-buttons button:focus,
+.modal-booking-buttons button:focus-visible {
+    outline: none;
+}
+
+.book-button,
+.add-wm-modal-button {
+    width: 60%;
+    background-color: #2C86FD;
+}
+
+.book-button:hover,
+.add-wm-modal-button:hover {
+    cursor: pointer;
+    background-color: #2974e1;
+}
+
+.cancel-button {
+    width: 38%;
+    background-color: #ff4c4c;
+}
+.cancel-button:hover {
+    cursor: pointer;
+    background-color: #d51010;
+}
+
+#new-wm-number {
+    width: 60%;
+    margin-top: 2px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f1f1f1;
+}
+
+#new-wm-number:focus {
+    outline: 3px solid #68a6fd;
+
 }

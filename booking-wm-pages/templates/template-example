@@ -1,0 +1,43 @@
+<!--                <div class="wm-item" id="1">-->
+<!--                    <div class="wm-title-wrapper">-->
+<!--                        <h2 class="wm-title-text">Стиральная машина № 1</h2>-->
+<!--                    </div>-->
+<!--                    <div class="time-ranges-wrapper">-->
+<!--                        <div class="time-ranges-row ">-->
+<!--                            <div class="time-range active tr1">-->
+<!--                                <div class="time-range-text-wrapper">-->
+<!--                                    <p class="time-range-text">8:00 - 9:45</p>-->
+<!--                                </div>-->
+<!--                                <div class="status-text-wrapper">-->
+<!--                                    <p class="status-text">Свободно</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="time-range booked tr2">-->
+<!--                                <div class="time-range-text-wrapper">-->
+<!--                                    <p class="time-range-text">9:45 - 11:15</p>-->
+<!--                                </div>-->
+<!--                                <div class="status-text-wrapper">-->
+<!--                                    <p class="status-text">Занято</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="time-range active tr3">-->
+<!--                                <div class="time-range-text-wrapper">-->
+<!--                                    <p class="time-range-text">11:15 - 13:00</p>-->
+<!--                                </div>-->
+<!--                                <div class="status-text-wrapper">-->
+<!--                                    <p class="status-text">Свободно</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="time-ranges-row">-->
+<!--                            <div class="time-range active tr4"></div>-->
+<!--                            <div class="time-range active tr5"></div>-->
+<!--                            <div class="time-range active tr6"></div>-->
+<!--                        </div>-->
+<!--                        <div class="time-ranges-row">-->
+<!--                            <div class="time-range active tr7"></div>-->
+<!--                            <div class="time-range active tr8"></div>-->
+<!--                            <div class="time-range active tr9"></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->

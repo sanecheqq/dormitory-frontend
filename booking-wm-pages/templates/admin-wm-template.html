@@ -1,0 +1,18 @@
+<script id="admin-wm-template" type="text/x-handlebars-template">
+    {{#each machines}}
+        <div class="wm-item-admin" id="{{id}}" wmNumber="{{wmNumber}}">
+            <div class="admin-wm-text-content">
+                <div class="admin-wm-title-wrapper">
+                    <p class="admin-wm-title-text">Стиральная машина №{{wmNumber}}</p>
+                </div>
+                <div class="admin-wm-status-wrapper">
+                    <p class="admin-wm-status-text">Статус: <span class="status-text-span {{#if enabled}}active-wm-item{{else}}inactive-wm-item{{/if}}">{{#if enabled}}активна{{else}}неактивна{{/if}}</span></p>
+                </div>
+            </div>
+            <div class="admin-wm-buttons-wrapper">
+                <button class="change-status-button">Изменить статус</button>
+                <button class="delete-wm-button">Удалить машину</button>
+            </div>
+        </div>
+    {{/each}}
+</script>

@@ -1,5 +1,5 @@
 $('#wm-items-wrapper')
-    .on('click', '.time-range', function () {
+    .on('click', '.time-range, .add-new-wm-button', function () {
         const modalContainer = $('#modal-container-id');
         const modalOverlay = $('#modal-overlay');
         const modalStatusSpan = $('#modal-status-span');
@@ -8,6 +8,9 @@ $('#wm-items-wrapper')
 
         let modalUserP = $('#modal-booked-user-text');
         $('#modal-time-span').text($(this).find('.time-range-text').text());
+        $('#modal-date-span').text(getCurrentDate());
+        $('#modal-wm-number-span').text($(this).closest('.wm-item').attr('id').substring(3));
+
         modalStatusSpan.text($(this).find('.status-text').text());
 
         if (modalStatusSpan.text() === 'Свободно') {
@@ -40,7 +43,8 @@ window.addEventListener('load', function() {
 
 
     closeButton.on('click', closeModal);
-    modalContent.on('click', closeModalOnClickOutside);
+    $('.cancel-button').on('click', closeModal);
+    // modalContent.on('click', closeModalOnClickOutside);
     $(document).on('keydown', closeModalOnEsc);
 
     function closeModal() {
@@ -59,5 +63,22 @@ window.addEventListener('load', function() {
         }
     }
 });
+
+function getCurrentDate() {
+    var currentDate = new Date();
+
+    if (window.location.pathname.includes("booking-tomorrow.html"))
+        currentDate.setDate(currentDate.getDate() + 1);
+
+
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+
+    day = (day < 10 ? '0' : '') + day;
+    month = (month < 10 ? '0' : '') + month;
+    return day + '-' + month + '-' + year;
+}
+
 
 

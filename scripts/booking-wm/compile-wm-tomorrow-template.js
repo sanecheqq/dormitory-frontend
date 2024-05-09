@@ -12,7 +12,19 @@ const timeRanges = {
 };
 
 
-function compileProducts() {
+function compileWMTomorrow() {
+    var currentDate = new Date();
+    var currentHour = currentDate.getHours();
+
+    // Проверяем, находится ли текущее время между 00:00 и 08:00
+    if (currentHour >= 0 && currentHour < 8) {
+        $('#wm-warning-message').text('Бронь на завтрашний день будет доступна после 8:00!');
+        console.log("Текущее время находится между 00:00 и 08:00");
+        return;
+    } else {
+        console.log("сейчас больше 8 00");
+    }
+
     $.ajax({
         url: 'http://127.0.0.1:8086/booking',
         type: 'GET',
@@ -22,6 +34,9 @@ function compileProducts() {
         },
         dataType: 'json',
         success: function (wmMachinesJsonData) {
+            wmMachinesJsonData.sort(function(a, b) {
+                return a.wmNumber - b.wmNumber;
+            });
             console.log('Получены данные:', wmMachinesJsonData);
             if (!wmMachinesJsonData || wmMachinesJsonData.length === 0) {
                 console.log("СТИРАЛОК НЕТ");
@@ -45,10 +60,10 @@ function compileProducts() {
                     if (i === wmMachines.machines.length) {
                         $('#wm-'+ machine.wmNumber).css('margin-bottom', '0px');
                     }
-                    if (!machine.timeRangesForToday) {
+                    if (!machine.timeRangesForTomorrow) {
                         return;
                     }
-                    machine.timeRangesForToday.forEach(function (timeRange) {
+                    machine.timeRangesForTomorrow.forEach(function (timeRange) {
                         let startTimeSubstr = timeRange.startTime.substring(timeRange.startTime.length - 5);
                         let trNumber = timeRanges[startTimeSubstr];
                         $('#wm-'+ machine.wmNumber)
@@ -71,7 +86,7 @@ function compileProducts() {
         error: function (xhr, status, error) {
             console.error('Ошибка при запросе:', xhr);
             if (xhr.status === 404) {
-                $('#empty-result-warning-text').text("Вы не опубликовывали товаров");
+                $('#empty-result-warning-text').text("Чет не так");
             } else {
                 $('#empty-result-warning-text').text("Непредвиденная ошибка на сервере");
             }
@@ -80,5 +95,5 @@ function compileProducts() {
     });
 }
 
-compileProducts();
+compileWMTomorrow();
 
