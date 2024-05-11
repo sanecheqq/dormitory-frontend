@@ -3,7 +3,7 @@ function compileWMAdmin() {
     console.log(decodedJWT);
     $('#admin-address-value').text(decodedJWT.userAddress);
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking/admin',
+        url: 'http://localhost:8070/booking/admin',
         type: 'GET',
         headers: {
             // 'Access-Control-Allow-Origin': 'http://localhost:63343',

@@ -1,9 +1,9 @@
-function compileWMAdmin() {
+function compileWMMy() {
     var decodedJWT = decodeJWT(localStorage.getItem('jwt'));
     console.log(decodedJWT);
     $('#admin-address-value').text(decodedJWT.userAddress);
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking/my',
+        url: 'http://localhost:8070/booking/my',
         type: 'GET',
         headers: {
             // 'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -18,7 +18,9 @@ function compileWMAdmin() {
                 console.log("СТИРАЛОК НЕТ");
                 return;
             }
+            var today = false, tomorrow = false;
             if (jsonData.todayBookings && jsonData.todayBookings.length > 0) {
+                today = true;
                 $('#my-bookings-today').show();
                 let data = { bookings : [] }
                 jsonData.todayBookings.forEach(function (booking) {
@@ -29,10 +31,32 @@ function compileWMAdmin() {
                 data.bookings.sort(function(a, b) {
                     return a.wmNumber - b.wmNumber;
                 });
-                compileBookingsForDay(data, '#my-bookings-today');
+                $.get('/booking-wm-pages/templates/my-booking-template.html', function(wmTemplate) {
+                    let templateHtml = $(wmTemplate).filter('#my-booking-template').html();
+                    let template = Handlebars.compile(templateHtml);
+                    let compiledHtml = template(data);
+                    $('#my-bookings-today').append(compiledHtml)
+                        .find('.my-booking-item').each(function (index, element) {
+                            console.log('aaa');
+                            let startTime = $(element).find('.my-booking-time-span').text().split(" - ")[0];
+                            let startHour = startTime.split(":")[0];
+                            let startMin = startTime.split(":")[1];
+                            let currentDate = new Date();
+                            let curHour = currentDate.getHours();
+                            let curMinute = currentDate.getMinutes();
+                            if (startHour < curHour || (startHour === curHour && startMin < curMinute)) {
+                                $(element).find('.delete-my-booking-button')
+                                    .hide()
+                                    .prop('disabled', 'true');
+                            }
+                        });
+                }).fail(function(xhr, status, error) {
+                    console.error('Ошибка при загрузке шаблона:', error);
+                });
             }
 
             if (jsonData.tomorrowBookings && jsonData.tomorrowBookings.length > 0) {
+                tomorrow = true;
                 $('#my-bookings-tomorrow').show();
                 let data = { bookings : [] }
                 jsonData.tomorrowBookings.forEach(function (booking) {
@@ -44,6 +68,10 @@ function compileWMAdmin() {
                     return a.wmNumber - b.wmNumber;
                 });
                 compileBookingsForDay(data, '#my-bookings-tomorrow');
+            }
+            if (!today && !tomorrow) {
+                $('#my-warning-message').show()
+                    .text('На ближайшее время у вас нет бронирований');
             }
         },
         error: function (xhr, status, error) {
@@ -58,7 +86,7 @@ function compileWMAdmin() {
     });
 }
 
-compileWMAdmin();
+compileWMMy();
 
 function compileBookingsForDay(day, divName) {
     $.get('/booking-wm-pages/templates/my-booking-template.html', function(wmTemplate) {

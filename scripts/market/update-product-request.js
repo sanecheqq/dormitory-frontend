@@ -42,7 +42,7 @@ $(document).ready(function() {
         formData.append('address', decodedJWT.userAddress);
 
         $.ajax({
-            url: 'http://192.168.0.15:8100/products/' + productId,
+            url: 'http://localhost:8070/market/products/' + productId,
             type: 'PUT',
             headers: {
                 'Access-Control-Allow-Origin': 'http://localhost:63342',

@@ -63,7 +63,7 @@ $(document).ready(function(){
 function patchUser(user_data) {
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: 'http://127.0.0.1:8085/user',
+            url: 'http://localhost:8070/user',
             type: 'PATCH',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('jwt')

@@ -7,6 +7,7 @@ $('#wm-items-wrapper')
         const modalDrierCheckbox = $('#with-drier');
 
         let modalUserP = $('#modal-booked-user-text');
+        modalUserP.show();
         $('#modal-time-span').text($(this).find('.time-range-text').text());
         $('#modal-date-span').text(getCurrentDate());
         $('#modal-wm-number-span').text($(this).closest('.wm-item').attr('id').substring(3));
@@ -29,6 +30,9 @@ $('#wm-items-wrapper')
             modalDrierCheckbox.prop('checked', isChecked);
             modalStatusSpan.css('color', '#787878');
             modalContactsSpan.text($(this).attr('username'));
+        }
+        if (modalStatusSpan.text() === 'Истек') {
+            modalUserP.hide();
         }
 
         modalContainer.css('display', 'block');

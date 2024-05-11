@@ -117,6 +117,26 @@ button {
     font-weight: bold;
 }
 
+/* EXPIRED TIME RANGE */
+
+.expired {
+    background: #DEDEDE;
+}
+
+.expired:hover {
+    background: #cbcbcb;
+    cursor: pointer;
+}
+
+.expired .time-range-text {
+    color: #666565;
+}
+
+.expired .status-text {
+    color: rgba(248, 68, 68, 0.75);
+    font-weight: bold;
+}
+/* ////////////////////// */
 .time-range-text-wrapper {
     text-align: center;
 }

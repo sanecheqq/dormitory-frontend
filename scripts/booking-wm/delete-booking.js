@@ -16,7 +16,7 @@ $(document).ready(function() {
 
 function deleteBooking(id) {
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking/' + id,
+        url: 'http://localhost:8070/booking/' + id,
         type: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')

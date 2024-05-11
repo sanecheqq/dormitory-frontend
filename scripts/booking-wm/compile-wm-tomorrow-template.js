@@ -26,7 +26,7 @@ function compileWMTomorrow() {
     }
 
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking',
+        url: 'http://localhost:8070/booking',
         type: 'GET',
         headers: {
             // 'Access-Control-Allow-Origin': 'http://localhost:63343',

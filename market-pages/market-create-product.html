@@ -66,7 +66,7 @@
     </div>
     <script>
         $.ajax({
-            url: 'http://127.0.0.1:8085/user',
+            url: 'http://localhost:8070/user',
             type: 'GET',
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -130,7 +130,7 @@
                 formData.append('address', decodedJWT.userAddress);
 
                 $.ajax({
-                    url: 'http://192.168.0.15:8100/products',
+                    url: 'http://localhost:8070/market/products',
                     type: 'POST',
                     headers: {
                         'Access-Control-Allow-Origin': 'http://localhost:63342',

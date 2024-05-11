@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 function addToFavorites(data) {
     $.ajax({
-        url: 'http://127.0.0.1:8085/saved_products',
+        url: 'http://localhost:8070/saved_products',
         type: 'POST',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -50,7 +50,7 @@ function addToFavorites(data) {
 
 function removeFromFavorites(data) {
     $.ajax({
-        url: 'http://127.0.0.1:8085/saved_products/' + data.productId,
+        url: 'http://localhost:8070/saved_products/' + data.productId,
         type: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')

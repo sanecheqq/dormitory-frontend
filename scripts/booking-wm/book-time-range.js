@@ -31,7 +31,7 @@ $(document).ready(function() {
 
 function bookTimeRange(data) {
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking',
+        url: 'http://localhost:8070/booking',
         type: 'POST',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')

@@ -19,7 +19,7 @@ function changeWmStatus(button) {
     let wmNumber = button.closest('.wm-item-admin').attr('wmNumber');
 
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking/admin',
+        url: 'http://localhost:8070/booking/admin',
         type: 'PATCH',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -38,7 +38,7 @@ function changeWmStatus(button) {
 
 function deleteWm(button) {
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking/admin',
+        url: 'http://localhost:8070/booking/admin',
         type: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -61,7 +61,7 @@ function addNewWM(button) {
         console.log("неверный wmNumber:", wmNumber);
         return;
     }$.ajax({
-        url: 'http://127.0.0.1:8086/booking/admin',
+        url: 'http://localhost:8070/booking/admin',
         type: 'POST',
         headers: {
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')

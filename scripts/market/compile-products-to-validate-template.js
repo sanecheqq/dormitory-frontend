@@ -1,6 +1,6 @@
 function compileProducts() {
     $.ajax({
-        url: 'http://192.168.0.15:8100/admin/validation',
+        url: 'http://localhost:8070/market/admin/validation',
         type: 'GET',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',

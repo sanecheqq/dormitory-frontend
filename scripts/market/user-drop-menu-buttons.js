@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 function sendArchiveProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.15:8100/products/sold/' + id,
+        url: 'http://localhost:8070/market/products/sold/' + id,
         type: 'PATCH',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -46,7 +46,7 @@ function sendArchiveProductRequest(id) {
 
 function sendDeleteProductRequest(id) {
     $.ajax({
-        url: 'http://192.168.0.15:8100/products/' + id,
+        url: 'http://localhost:8070/market/products/' + id,
         type: 'DELETE',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',

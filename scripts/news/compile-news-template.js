@@ -1,9 +1,9 @@
 function compileAllNews() {
     $.ajax({
-        url: 'http://192.168.0.15:8090/news',
+        url: 'http://localhost:8070/news',
         type: 'GET',
         headers: {
-            'Access-Control-Allow-Origin': 'http://localhost:63342',
+            // 'Access-Control-Allow-Origin': 'http://localhost:63343',
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
         },
         dataType: 'json',

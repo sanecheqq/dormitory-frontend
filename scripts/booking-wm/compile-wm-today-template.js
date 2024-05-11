@@ -14,7 +14,7 @@ const timeRanges = {
 
 function compileWMToday() {
     $.ajax({
-        url: 'http://127.0.0.1:8086/booking',
+        url: 'http://localhost:8070/booking',
         type: 'GET',
         headers: {
             // 'Access-Control-Allow-Origin': 'http://localhost:63343',
@@ -64,6 +64,25 @@ function compileWMToday() {
                             .removeClass('active')
                             .find('.status-text').text('Занято');
                     });
+                    $('#wm-' + machine.wmNumber).find('.time-range').each(function(index, elem) {
+                        if ($(elem).find('.status-text').text() !== 'Свободно')
+                            return
+
+                        let startTime = $(elem).find('.time-range-text').text().split(" - ")[0];
+                        let startHour = startTime.split(":")[0];
+                        let startMin = startTime.split(":")[1];
+
+                        let currentDate = new Date();
+                        let curHour = currentDate.getHours();
+                        let curMinute = currentDate.getMinutes();
+                        if (startHour < curHour || (startHour === curHour && startMin < curMinute)) {
+                            $(elem).prop('disabled', 'true')
+                                .toggleClass('active')
+                                .toggleClass('expired')
+                                .find('.status-text').text('Истек');
+                        }
+                    });
+
 
                 });
             }).fail(function(xhr, status, error) {

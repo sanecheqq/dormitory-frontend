@@ -2,9 +2,10 @@ uploadUserData();
 
 function uploadUserData() {
     $.ajax({
-        url: 'http://127.0.0.1:8085/user',
+        url: 'http://localhost:8070/user',
         type: 'GET',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:63343',
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
         },
         dataType: 'json',

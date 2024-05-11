@@ -1,6 +1,6 @@
 function sendPatchStatusRequest(id, status) {
     $.ajax({
-        url: 'http://192.168.0.15:8100/admin/product/' + id,
+        url: 'http://localhost:8070/market/admin/product/' + id,
         type: 'PATCH',
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63343',

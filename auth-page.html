@@ -41,9 +41,12 @@
             };
 
             $.ajax({
-                url: 'http://127.0.0.1:8085/auth/login',
+                url: 'http://192.168.0.15:8070/auth/login',
                 type: 'POST',
                 // mode: 'no-cors',
+                // headers: {
+                //     'Access-Control-Allow-Origin': 'http://localhost:63343'
+                // },
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 dataType: 'json',

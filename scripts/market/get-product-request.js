@@ -1,7 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 const productId = urlParams.get('id');
 $.ajax({
-    url: 'http://192.168.0.15:8100/products/' + productId,
+    url: 'http://localhost:8070/market/products/' + productId,
     type: 'GET',
     headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('jwt')
