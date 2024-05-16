@@ -36,11 +36,12 @@
             <div class="form-group">
                 <label for="category">Категория:</label>
                 <select id="category" name="category" required>
-                    <option value="FOOD">Еда</option>
+                    <option value="FOOD">Продукты питания</option>
                     <option value="ELECTRONICS">Электроника</option>
                     <option value="MALE_CLOTHES">Одежда мужская</option>
                     <option value="FEMALE_CLOTHES">Одежда женская</option>
                     <option value="HOUSEHOLD_GOODS">Бытовые товары</option>
+                    <option value="STUDYING">Товары для учебы</option>
                     <option value="SERVICES">Услуги</option>
                     <option value="OTHERS">Другое</option>
                 </select>
@@ -50,7 +51,15 @@
                 <textarea id="description" name="description" style="height: 100px;" required></textarea>
             </div>
             <div class="form-group">
-                <label for="price">Цена:</label>
+                <div class="free-checkbox-wrapper">
+                    <label for="free-checkbox" style="font-size: 16px;">
+                        Даром:
+                        <input id="free-checkbox" type="checkbox" name="free-checkbox">
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price" id="price-label">Цена:</label>
                 <input type="number" id="price" name="price" min="0" max="1000000" required>
                 <p id="errorMessagePrice" style="color: red;"></p>
             </div>
@@ -84,6 +93,7 @@
     <script src="/scripts/decode_jwt.js"></script>
     <script src="/scripts/auth-check.js"></script>
     <script src="/scripts/market/nav-buttons.js"></script>
+    <script src="/scripts/market/free-checkbox-create-product-processing.js"></script>
     <script>
         $(document).ready(function() {
             $('#images').on('change', function() {

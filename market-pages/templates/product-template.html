@@ -18,7 +18,11 @@
                     </button>
                 </div>
                 <div class="product-price-wrapper">
-                    <p class="product-price-text">{{price}} ₽</p>
+                    {{#if price}}
+                        <p class="product-price-text">{{price}} ₽</p>
+                    {{else}}
+                        <p class="product-price-text">Даром</p>
+                    {{/if}}
                 </div>
                 <div class="product-description-wrapper">
                     <p class="product-description-text">{{description}}</p>

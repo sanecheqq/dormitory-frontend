@@ -267,10 +267,12 @@ body {
 .news-title {
     margin-right: 10px;
     font-size: 24px;
-    font-style: italic;
+    /*font-style: italic;*/
+    font-weight: 600;
     word-wrap: break-word;
     text-align: left;
     flex-grow: 1;
+    margin-bottom: 0;
 }
 
 .admin-menu {

@@ -35,8 +35,8 @@ p {
 }
 
 .product-contacts-text {
-    font-weight: bold;
-    color: #a1a1a1;
+    font-weight: 500;
+    /*color: #a1a1a1;*/
 }
 
 .product-description-text {

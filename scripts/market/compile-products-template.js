@@ -5,6 +5,8 @@ let searchText = null;
 let category = null;
 let min_price = 0;
 let max_price = 10000000;
+let address = null;
+const ADDRESS_CONST = decodeJWT(localStorage.getItem('jwt')).userAddress;
 
 $(document).ready(function() {
     loadNextPage();
@@ -35,10 +37,14 @@ function doFirstSearch() {
 
     searchText = $('#products-search-input').val();
     console.log(searchText);
+    if ($('#my-address-checkbox').prop('checked'))
+        address = ADDRESS_CONST;
+    else
+        address = null;
     $.ajax({
         url: 'http://localhost:8070/market/products',
         type: 'GET',
-        data: { page: 0, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price }, // Указываем страницу 1 и текст поиска
+        data: { page: 0, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price, address: address }, // Указываем страницу 1 и текст поиска
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63342',
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
@@ -78,12 +84,16 @@ function doFirstSearch() {
 function loadNextPage() {
     checkCategoryForUpdate();
     checkPriceForUpdate();
+    if ($('#my-address-checkbox').prop('checked'))
+        address = ADDRESS_CONST;
+    else
+        address = null;
     isLoading = true;
     console.log("load next page")
     $.ajax({
         url: 'http://localhost:8070/market/products',
         type: 'GET',
-        data: { page: currentPage, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price},
+        data: { page: currentPage, search_pattern: searchText, category: category, min_price: min_price, max_price: max_price, address: address},
         headers: {
             'Access-Control-Allow-Origin': 'http://localhost:63342',
             'Authorization': 'Bearer ' + localStorage.getItem('jwt')
